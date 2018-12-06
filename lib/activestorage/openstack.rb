@@ -1,7 +1,9 @@
-require "activestorage/openstack/railtie"
+# frozen_string_literal: true
 
-module Activestorage
-  module Openstack
-    # Your code goes here...
-  end
-end
+require 'activestorage/openstack/railtie'
+
+# module Activestorage
+#   module Openstack
+#     # Your code goes here...
+#   end
+# end

@@ -1,0 +1,7 @@
+directories:
+  "spec/support":
+    UtilityFunction:
+      enabled: false
+
+exclude_paths:
+  - spec/dummy

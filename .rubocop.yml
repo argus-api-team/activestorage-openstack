@@ -1,0 +1,20 @@
+require: rubocop-rspec
+
+Metrics/BlockLength:
+  ExcludedMethods:
+    - context
+    - define
+    - describe
+    - draw
+    - factory
+    - group
+    - guard
+    - namespace
+    - trait
+    - aasm
+
+AllCops:
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+  Exclude:
+    - spec/dummy/**/*
