@@ -3,9 +3,9 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'activestorage_openstack'
 
 Bundler.require(*Rails.groups)
-require 'activestorage-openstack'
 
 module Dummy
   class Application < Rails::Application

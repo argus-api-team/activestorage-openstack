@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 module ActiveStorage
-  class Service
-    # Defines OpenStackService behaviour.
-    class OpenStackService < Service
-    end
+  class Service::OpenStackService < Service
   end
 end

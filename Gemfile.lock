@@ -58,7 +58,6 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
-    brakeman (4.3.1)
     builder (3.2.3)
     byebug (10.0.2)
     codeclimate-engine-rb (0.4.1)
@@ -98,9 +97,6 @@ GEM
       pry (>= 0.9.12)
       shellany (~> 0.0)
       thor (>= 0.18.1)
-    guard-brakeman (0.8.3)
-      brakeman (>= 2.1.1)
-      guard (>= 2.0.0)
     guard-bundler (2.1.0)
       bundler (~> 1.0)
       guard (~> 2.2)
@@ -187,7 +183,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
-    rake (12.3.1)
+    rake (12.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -279,7 +275,6 @@ DEPENDENCIES
   factory_bot_rails
   fuubar
   guard
-  guard-brakeman
   guard-bundler
   guard-reek
   guard-rspec
