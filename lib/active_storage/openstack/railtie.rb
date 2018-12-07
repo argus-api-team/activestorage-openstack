@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module Activestorage
+module ActiveStorage
   module Openstack
-    # Defines Railtie behaviouer.
+    # Defines Railtie behaviour.
     class Railtie < ::Rails::Railtie
     end
   end

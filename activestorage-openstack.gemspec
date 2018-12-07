@@ -3,12 +3,13 @@
 $LOAD_PATH.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
-require 'activestorage/openstack/version'
+require 'active_storage/openstack/version'
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |spec|
+  spec.platform    = Gem::Platform::RUBY
   spec.name        = 'activestorage-openstack'
-  spec.version     = Activestorage::Openstack::VERSION
+  spec.version     = ActiveStorage::Openstack::VERSION
   spec.authors     = ['Mickael Palma']
   spec.email       = ['mpalma@largus.fr']
   spec.homepage    = 'https://github.com/mickael-palma-argus/activestorage-openstack'
@@ -27,7 +28,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.files = Dir[
-    '{app,config,db,lib,spec}/**/*',
+    '{app,config,db,lib}/**/*',
     'MIT-LICENSE',
     'Rakefile',
     'README.md'
