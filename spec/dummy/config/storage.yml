@@ -1,9 +1,9 @@
 openstack:
   service: OpenStack
-  container: <%= ENV['OPENSTACK_CONTAINER'] %>
-  auth_url: <%= ENV['OPENSTACK_AUTH_URL'] %>
-  region: <%= ENV['OPENSTACK_REGION'] %>
+  container: <%= Rails.application.config.x.openstack.fetch(:container) %>
+  auth_url: <%= Rails.application.config.x.openstack.fetch(:auth_url) %>
+  region: <%= Rails.application.config.x.openstack.fetch(:region) %>
   credentials:
-    username: <%= ENV['OPENSTACK_USERNAME'] %>
-    api_key: <%= ENV['OPENSTACK_API_KEY'] %>
-    temp_url_key: <%= ENV['OPENSTACK_TEMP_URL_KEY'] %>
+    username: <%= Rails.application.credentials.openstack.fetch(:username) %>
+    api_key: <%= Rails.application.credentials.openstack.fetch(:api_key) %>
+    temporary_url_key: <%= Rails.application.credentials.openstack.fetch(:temporary_url_key) %>

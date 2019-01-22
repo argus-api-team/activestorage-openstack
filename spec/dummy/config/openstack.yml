@@ -1,0 +1,15 @@
+default: &default
+  auth_url: https://auth.cloud.ovh.net/v3/auth/tokens
+  region: GRA3
+
+development:
+  <<: *default
+  container: development-assets-api
+
+test:
+  <<: *default
+  container: test-assets-api
+
+production:
+  <<: *default
+  container: production-assets-api
