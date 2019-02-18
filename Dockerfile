@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.1-alpine
 
 ENV APP_USER appuser
 ENV APP_FOLDER /app
@@ -21,7 +21,7 @@ RUN apk --update add --no-cache \
     bundle install --clean --jobs 4 && \
     addgroup -g 1000 -S $APP_USER && \
     adduser -u 1000 -S $APP_USER -G $APP_USER && \
-    chown -R $APP_USER:$APP_USER /usr/local/bundle
+    chown -R $APP_USER:$APP_USER $APP_FOLDER /usr/local/bundle
 
 USER $APP_USER
 
