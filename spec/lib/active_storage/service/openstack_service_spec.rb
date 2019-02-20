@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/securerandom'
-require_relative '../../../../lib/active_storage/service/open_stack_service'
+require_relative '../../../../lib/active_storage/service/openstack_service'
 
-describe ActiveStorage::Service::OpenStackService do
+describe ActiveStorage::Service::OpenstackService do
   subject(:service) { described_class.new }
 
   describe '#upload' do
