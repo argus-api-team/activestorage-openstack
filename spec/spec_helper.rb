@@ -2,7 +2,11 @@
 
 ENV['RAILS_ENV'] ||= 'test'
 
-require File.expand_path('../spec/dummy/config/environment', __dir__)
+require File.expand_path('dummy/config/environment', __dir__)
+
+ActiveRecord::Migrator.migrations_paths = [
+  File.expand_path('dummy/db/migrate', __dir__)
+]
 
 if Rails.env.production?
   abort('The Rails environment is running in production mode!')
@@ -14,13 +18,13 @@ Dir["#{Dir.pwd}/spec/support/**/*.rb"].each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
+rescue ActiveRecord::PendingMigrationError => exception
+  puts exception.to_s.strip
   exit 1
 end
 
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.fixture_path = File.expand_path('fixtures', __dir__)
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -29,6 +33,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
