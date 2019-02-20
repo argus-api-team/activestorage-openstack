@@ -2,7 +2,7 @@
 
 module ActiveStorage
   class Service
-    # OpenStack Service API
+    # Wraps OpenStack Object Storage Service as an Active Storage service.
     class OpenStackService < Service
     end
   end
