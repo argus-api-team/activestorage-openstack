@@ -32,6 +32,6 @@ describe ActiveStorage::Openstack::Token do
   describe '#cache_key' do
     subject(:cache_key) { token.cache_key }
 
-    it { is_expected.to eq("openstack/token/#{username}") }
+    it { is_expected.to eq("openstack/token-#{username}") }
   end
 end

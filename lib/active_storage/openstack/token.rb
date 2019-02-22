@@ -43,7 +43,7 @@ module ActiveStorage
       end
 
       def cache_key
-        "openstack/token/#{username}"
+        "openstack/token-#{username}"
       end
 
       # Response simplifies interaction with the request response.
