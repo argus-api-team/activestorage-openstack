@@ -15,7 +15,7 @@ describe ActiveStorage::Openstack::Token do
 
   describe '#get', vcr: {
     cassette_name: 'lib/active_storage/openstack/token/get',
-    record: :new_episodes
+    record: :once
   } do
     subject(:get) { token.get }
 
@@ -27,5 +27,11 @@ describe ActiveStorage::Openstack::Token do
 
     it { is_expected.to include(username) }
     it { is_expected.to include(password) }
+  end
+
+  describe '#cache_key' do
+    subject(:cache_key) { token.cache_key }
+
+    it { is_expected.to eq("openstack/token/#{username}") }
   end
 end
