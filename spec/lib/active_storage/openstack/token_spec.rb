@@ -3,6 +3,8 @@
 require_relative '../../../../lib/active_storage/openstack/token'
 
 describe ActiveStorage::Openstack::Token do
+  include ActiveSupport::Testing::TimeHelpers
+
   subject(:token) do
     described_class.new username: username,
                         password: password,
@@ -19,7 +21,17 @@ describe ActiveStorage::Openstack::Token do
   } do
     subject(:get) { token.get }
 
+    after do
+      token.cache.clear
+    end
+
     it { is_expected.not_to be_empty }
+
+    it 'adds token to cache' do
+      get
+
+      expect(token.cache.exist?(token.cache_key)).to be_truthy
+    end
   end
 
   describe '#payload' do

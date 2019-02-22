@@ -5,7 +5,9 @@ http_interactions:
     uri: https://auth.cloud.ovh.net/v3/auth/tokens
     body:
       encoding: UTF-8
-      string: '{"auth":{"identity":{"methods":["password"],"password":{"user":{"name":"<USERNAME>","domain":{"name":"Default"},"password":"<PASSWORD>"}}}}}'
+      string: '{ "auth": { "identity": { "methods": [ "password" ], "password": {
+        "user": { "name": "<USERNAME>", "domain": { "id": "default" }, "password":
+        "<API_KEY>" } } } } }'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -21,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       X-Subject-Token:
-      - gAAAAABcbYeCgcXyxhBuk4JehLYkLF8Mgh9shs6LD3IZ37cqgF5jCXphkdtJQiqEIyPRJNH4Z8VDwFj0ak8H6xZ9G5ucoYRcLTFTNLM6yvCR_i-8T1POZv0hGMCc_1_N5Z2WAC_V5fh5Q-2w-3J2GzUfsh_SHoSKTZdtJixQVGsgxPiN95p_0vc
+      - gAAAAABccDVWmfcnN0L0aC_hGAifnHuY0Avr7ABsCUWBHZk8Dheh4JGb9awATsGV1uItIyevJuvkdADSwLGFW0SCacrFSllsuaKO6GVR0mD3b53j6vk5BzRceHdberCqt0e4xiDKn-KOXUguNRVvfAeTVI6na5VUzKVvHAhV9ZmPrBWLrDlF7Y0
       Vary:
       - X-Auth-Token
       Content-Type:
@@ -29,7 +31,7 @@ http_interactions:
       Content-Length:
       - '30654'
       X-Openstack-Request-Id:
-      - req-3c1c788e-608e-4472-8409-1f1d04d4d7de
+      - req-2cb20c75-d10e-41e8-abc7-2ec9c5d56c3f
       X-Iplb-Instance:
       - '24499'
     body:
@@ -379,10 +381,10 @@ http_interactions:
         {"region_id": "UK1", "url": "https://volume.compute.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
         "region": "UK1", "interface": "internal", "id": "ed491d99c01d41c5ae2b039c1d4d1dc7"}],
         "type": "volume", "id": "f9cfa350a3e2452c9ae64f3846d9d213", "name": "cinder"}],
-        "expires_at": "2019-02-21T16:59:46.000000Z", "user": {"password_expires_at":
+        "expires_at": "2019-02-23T17:45:58.000000Z", "user": {"password_expires_at":
         null, "domain": {"id": "default", "name": "Default"}, "id": "532aa47b8ff9491186b4d2e19cac1f77",
-        "name": "<USERNAME>"}, "audit_ids": ["R6WrduaOR5m424ym_g9_fA"], "issued_at":
-        "2019-02-20T16:59:46.000000Z"}}'
+        "name": "<USERNAME>"}, "audit_ids": ["0RJXiUOIRUmPjoq2rGI-Lg"], "issued_at":
+        "2019-02-22T17:45:58.000000Z"}}'
     http_version: 
-  recorded_at: Wed, 20 Feb 2019 16:59:46 GMT
+  recorded_at: Fri, 22 Feb 2019 17:45:56 GMT
 recorded_with: VCR 4.0.0

@@ -6,21 +6,23 @@ module ActiveStorage
   module Openstack
     # Token allows to get an authentication token from OpenStack API.
     class Token
-      attr_reader :username, :password, :uri
+      attr_reader :username, :password, :uri, :cache
 
       def initialize(username:, password:, url:)
         @username = username
         @password = password
         @uri = URI(url)
+        @cache = Rails.cache
       end
 
       def get
         prepare_request
-        response.token
+        cache_response if token_expired?
+        read_token_from_cache
       end
 
       def payload
-        <<~JSON
+        <<~JSON.squish
           {
             "auth": {
               "identity": {
@@ -64,13 +66,20 @@ module ActiveStorage
           headers.dig('x-subject-token')
         end
 
+        def expires_at
+          Time.parse(body_as_hash.dig('token', 'expires_at'))
+        rescue TypeError
+          nil
+        end
+
         def to_h
           {
-            'headers' => headers,
-            'token' => token,
-            'code' => code,
-            'message' => message,
-            'body' => body_as_hash
+            headers: headers,
+            token: token,
+            expires_at: expires_at,
+            code: code,
+            message: message,
+            body: body_as_hash
           }
         end
 
@@ -115,6 +124,24 @@ module ActiveStorage
 
       def response
         @response ||= Response.new(http.request(request))
+      end
+
+      def token_expired?
+        read_from_cache.fetch('expires_at') < Time.now
+      rescue TypeError
+        true
+      end
+
+      def cache_response
+        cache.write(cache_key, response.to_h.to_json)
+      end
+
+      def read_token_from_cache
+        read_from_cache.fetch('token')
+      end
+
+      def read_from_cache
+        @read_from_cache ||= JSON.parse(cache.read(cache_key))
       end
     end
   end
