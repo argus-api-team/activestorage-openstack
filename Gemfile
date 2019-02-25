@@ -9,6 +9,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'byebug'
   gem 'factory_bot_rails'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
