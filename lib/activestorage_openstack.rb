@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
-# ActiveStorageOpenstack module details
-module ActiveStorageOpenstack
-end
+require File.expand_path('active_storage/service/openstack_service', __dir__)
+
+require File.expand_path('active_storage/openstack/client', __dir__)
+require File.expand_path('active_storage/openstack/railtie', __dir__)
+require File.expand_path('active_storage/openstack/version', __dir__)
