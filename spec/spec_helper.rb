@@ -4,6 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('dummy/config/environment', __dir__)
 
+APP_ROOT = File.expand_path('../', __dir__)
+
 ActiveRecord::Migrator.migrations_paths = [
   File.expand_path('dummy/db/migrate', __dir__)
 ]

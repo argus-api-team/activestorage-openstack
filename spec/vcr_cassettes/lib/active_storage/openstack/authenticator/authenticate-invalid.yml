@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://auth.cloud.ovh.net/v3/auth/tokens
+    body:
+      encoding: UTF-8
+      string: '{ "auth": { "identity": { "methods": [ "password" ], "password": {
+        "user": { "name": "<USERNAME>", "domain": { "id": "default" }, "password":
+        "wrong_password" } } } } }'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - auth.cloud.ovh.net
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Www-Authenticate:
+      - Keystone uri="https://auth.cloud.ovh.net"
+      Vary:
+      - X-Auth-Token
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '114'
+      X-Openstack-Request-Id:
+      - req-48dc487b-b706-432e-b2f7-93c7f35ced78
+      X-Iplb-Instance:
+      - '24496'
+    body:
+      encoding: UTF-8
+      string: '{"error": {"message": "The request you have made requires authentication.",
+        "code": 401, "title": "Unauthorized"}}'
+    http_version: 
+  recorded_at: Mon, 25 Feb 2019 17:25:18 GMT
+recorded_with: VCR 4.0.0

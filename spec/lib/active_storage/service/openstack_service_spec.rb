@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'active_support/core_ext/securerandom'
-require_relative '../../../../lib/active_storage/service/openstack_service'
+require "#{APP_ROOT}/lib/active_storage/service/openstack_service"
 
 describe ActiveStorage::Service::OpenstackService do
   subject(:service) { described_class.new }
