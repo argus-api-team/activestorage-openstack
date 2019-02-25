@@ -5,9 +5,12 @@ module ActiveStorage
     class Client
       # It retrieves token from OpenStack API and caches it.
       class Authenticator
-        attr_reader :username, :password, :cache
-
         include ActiveModel::Model
+
+        autoload :Request, File.expand_path('authenticator/request', __dir__)
+        autoload :Response, File.expand_path('authenticator/response', __dir__)
+
+        attr_reader :username, :password, :cache
 
         validates :username,
                   :password,
@@ -36,113 +39,6 @@ module ActiveStorage
         def token
           read_from_cache.fetch('token')
         end
-
-        # Prepares authentication request.
-        class Request
-          attr_reader :credentials, :https_client, :uri
-
-          delegate :username, :password, to: :credentials
-
-          def initialize(credentials:, uri:)
-            @credentials = credentials
-            @uri = uri
-            @https_client = Net::HTTP.new(uri.host, uri.port)
-          end
-
-          def call
-            set_ssl
-            set_headers
-            set_body
-            https_client.request(request)
-          end
-
-          private
-
-          def set_ssl
-            https_client.use_ssl = true
-            https_client.verify_mode = OpenSSL::SSL::VERIFY_NONE
-          end
-
-          def set_headers
-            request['Content-Type'] = 'application/json'
-          end
-
-          def request
-            @request ||= Net::HTTP::Post.new(uri)
-          end
-
-          def set_body
-            request.body = payload
-          end
-
-          def payload
-            <<~JSON.squish
-              {
-                "auth": {
-                  "identity": {
-                    "methods": [
-                      "password"
-                    ],
-                    "password": {
-                      "user": {
-                        "name": "#{username}",
-                        "domain": {
-                          "id": "default"
-                        },
-                        "password": "#{password}"
-                      }
-                    }
-                  }
-                }
-              }
-            JSON
-          end
-        end
-
-        # Response simplifies interaction with the request response.
-        class Response
-          attr_reader :request
-
-          delegate :code, :message, :body, to: :request
-
-          def initialize(request)
-            @request = request
-          end
-
-          def headers
-            request.each_header.to_h
-          end
-
-          def token
-            headers.dig('x-subject-token')
-          end
-
-          def expires_at
-            Time.parse(body_as_hash.dig('token', 'expires_at'))
-          rescue TypeError
-            nil
-          end
-
-          def to_h
-            {
-              headers: headers,
-              token: token,
-              expires_at: expires_at,
-              code: Integer(code),
-              message: message,
-              body: body_as_hash
-            }
-          end
-
-          private
-
-          def body_as_hash
-            JSON.parse(body)
-          rescue JSON::ParserError
-            {}
-          end
-        end
-        private_constant :Request, :Response
 
         private
 
