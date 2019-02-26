@@ -36,6 +36,14 @@ module ActiveStorage
           end
         end
 
+        def authenticate_request(&_request)
+          return unless block_given?
+
+          yield.tap do |request|
+            request.add_field('X-Auth-Token', token)
+          end
+        end
+
         def token
           read_from_cache.fetch('token')
         end
@@ -70,19 +78,19 @@ module ActiveStorage
         end
 
         def cache_response
+          # We cache JSON rather than ruby object.
           cache.write(cache_key, Response.new(request).to_h.to_json)
         end
 
-        # it's just a hash :reek:UtilityFunction
         def failed_cache_placeholder
           {
-            headers: nil,
-            token: nil,
-            expires_at: nil,
-            code: nil,
-            message: nil,
-            body: nil
-          }.stringify_keys!
+            'headers' => nil,
+            'token' => nil,
+            'expires_at' => nil,
+            'code' => nil,
+            'message' => nil,
+            'body' => nil
+          }
         end
       end
     end

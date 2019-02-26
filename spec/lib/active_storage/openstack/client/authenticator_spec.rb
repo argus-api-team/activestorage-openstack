@@ -59,5 +59,32 @@ describe ActiveStorage::Openstack::Client::Authenticator do
     subject(:token) { authenticator.token }
 
     it { is_expected.to be_nil }
+
+    context 'when authenticated', vcr: {
+      cassette_name: "#{cassettes_path}/authenticate",
+      record: :once
+    } do
+      before do
+        authenticator.authenticate
+      end
+
+      it { is_expected.not_to be_nil }
+    end
+  end
+
+  describe '#authenticate_request' do
+    subject(:authenticate_request) do
+      authenticator.authenticate_request { request }
+    end
+
+    let(:request) { Net::HTTP::Get.new(path) }
+    let(:path) { '/' }
+
+    it 'adds x-auth-token header' do
+      authenticate_request
+
+      headers_hash = request.each_header.to_h
+      expect(headers_hash).to include('x-auth-token')
+    end
   end
 end
