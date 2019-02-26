@@ -25,4 +25,14 @@ describe ActiveStorage::Openstack::Client do
 
     it { is_expected.to be_invalid }
   end
+
+  describe '#authenticator' do
+    subject(:authenticator) { client.authenticator }
+
+    it do
+      expect(authenticator).to an_instance_of(
+        ActiveStorage::Openstack::Client::Authenticator
+      )
+    end
+  end
 end

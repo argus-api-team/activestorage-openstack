@@ -83,11 +83,10 @@ describe ActiveStorage::Openstack::Client::Authenticator do
     let(:request) { Net::HTTP::Get.new(path) }
     let(:path) { '/' }
 
-    it 'adds x-auth-token header' do
+    it 'adds X-Auth-Token header' do
       authenticate_request
 
-      headers_hash = request.each_header.to_h
-      expect(headers_hash).to include('x-auth-token')
+      expect(request.each_name.to_a).to include('x-auth-token')
     end
   end
 end
