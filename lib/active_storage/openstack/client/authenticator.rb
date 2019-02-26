@@ -39,6 +39,7 @@ module ActiveStorage
         def authenticate_request(&_request)
           return unless block_given?
 
+          authenticate
           yield.tap do |request|
             request.add_field('X-Auth-Token', token)
           end

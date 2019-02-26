@@ -10,6 +10,10 @@ describe ActiveStorage::Openstack::Client::Authenticator do
                         password: password
   end
 
+  after do
+    authenticator.cache.clear
+  end
+
   let(:username) { Rails.application.credentials.openstack.fetch(:username) }
   let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
 
@@ -38,10 +42,6 @@ describe ActiveStorage::Openstack::Client::Authenticator do
     record: :once
   } do
     subject(:authenticate) { authenticator.authenticate }
-
-    after do
-      authenticator.cache.clear
-    end
 
     it { is_expected.to be_truthy }
 
@@ -72,7 +72,10 @@ describe ActiveStorage::Openstack::Client::Authenticator do
     end
   end
 
-  describe '#authenticate_request' do
+  describe '#authenticate_request', vcr: {
+    cassette_name: "#{cassettes_path}/authenticate",
+    record: :once
+  } do
     subject(:authenticate_request) do
       authenticator.authenticate_request { request }
     end

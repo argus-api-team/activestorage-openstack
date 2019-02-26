@@ -14,7 +14,7 @@ module ActiveStorage
                 :password,
                 presence: true
 
-      delegate :authenticate, to: :authenticator
+      delegate :authenticate, :authenticate_request, to: :authenticator
 
       def initialize(username:, password:, cache: Rails.cache)
         @username = username
