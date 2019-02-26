@@ -28,7 +28,7 @@ module ActiveStorage
 
         def authenticate
           cache_response if token_expired?
-          case read_from_cache.fetch('code')
+          case parse_cached_response.fetch('code')
           when 201
             true
           else
@@ -46,7 +46,7 @@ module ActiveStorage
         end
 
         def token
-          read_from_cache.fetch('token')
+          parse_cached_response.fetch('token')
         end
 
         private
@@ -67,20 +67,19 @@ module ActiveStorage
         end
 
         def token_expired?
-          read_from_cache.fetch('expires_at') < Time.now
+          parse_cached_response.fetch('expires_at') < Time.now
         rescue TypeError, NoMethodError
           true
         end
 
-        def read_from_cache
-          @read_from_cache ||= JSON.parse(cache.read(cache_key))
+        def parse_cached_response
+          @parse_cached_response ||= JSON.parse(cache.read(cache_key))
         rescue TypeError
           failed_cache_placeholder
         end
 
         def cache_response
-          # We cache JSON rather than ruby object.
-          cache.write(cache_key, Response.new(request).to_h.to_json)
+          cache.write(cache_key, Response.new(request).to_cache)
         end
 
         def failed_cache_placeholder

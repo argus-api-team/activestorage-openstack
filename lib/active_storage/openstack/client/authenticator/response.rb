@@ -29,15 +29,16 @@ module ActiveStorage
             nil
           end
 
-          def to_h
+          def to_cache
+            # We cache JSON rather than ruby object. Simple object.
             {
-              headers: headers,
-              token: token,
-              expires_at: expires_at,
-              code: Integer(code),
-              message: message,
-              body: body_as_hash
-            }
+              'headers': headers,
+              'token': token,
+              'expires_at': expires_at,
+              'code': Integer(code),
+              'message': message,
+              'body': body_as_hash
+            }.to_json
           end
 
           private
