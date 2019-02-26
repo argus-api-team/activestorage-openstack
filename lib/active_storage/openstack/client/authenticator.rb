@@ -7,11 +7,8 @@ module ActiveStorage
       class Authenticator
         include ActiveModel::Model
 
-        # rubocop:disable Metrics/LineLength
         autoload :Request, File.expand_path('authenticator/request', __dir__)
         autoload :Response, File.expand_path('authenticator/response', __dir__)
-        autoload :HTTPSClient, File.expand_path('authenticator/https_client', __dir__)
-        # rubocop:enable Metrics/LineLength
 
         attr_reader :username, :password, :cache
 

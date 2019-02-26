@@ -7,6 +7,7 @@ module ActiveStorage
       include ActiveModel::Model
 
       autoload :Authenticator, File.expand_path('client/authenticator', __dir__)
+      autoload :HTTPSClient, File.expand_path('client/https_client', __dir__)
 
       attr_reader :username, :password, :cache
 
