@@ -1,22 +1,24 @@
 # frozen_string_literal: true
 
+require_relative '../../helpers/https_client'
+
 module ActiveStorage
   module Openstack
     # :reek:IrresponsibleModule
     class Client
-      autoload :HTTPSClient, File.expand_path('../https_client', __dir__)
       # :reek:IrresponsibleModule
       class Authenticator
         # Prepares authentication request.
         class Request
-          attr_reader :credentials, :https_client, :uri
+          include Helpers::HTTPSClient
+
+          attr_reader :credentials, :uri
 
           delegate :username, :password, to: :credentials
 
           def initialize(credentials:, uri:)
             @credentials = credentials
             @uri = uri
-            @https_client = HTTPSClient.new(uri: uri).client
           end
 
           def call

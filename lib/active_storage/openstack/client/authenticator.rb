@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+require_relative '../helpers/cache_readable'
+
 module ActiveStorage
   module Openstack
     class Client
       # It retrieves token from OpenStack API and caches it.
       class Authenticator
         include ActiveModel::Model
+        include ::ActiveStorage::Openstack::Helpers::CacheReadable
 
         autoload :Request, File.expand_path('authenticator/request', __dir__)
         autoload :Response, File.expand_path('authenticator/response', __dir__)
@@ -22,13 +25,9 @@ module ActiveStorage
           @cache = cache
         end
 
-        def cache_key
-          "openstack/token-#{username}"
-        end
-
         def authenticate
           cache_response if token_expired?
-          case parse_cached_response.fetch('code')
+          case read_from_cache.fetch('code')
           when 201
             true
           else
@@ -46,7 +45,7 @@ module ActiveStorage
         end
 
         def token
-          parse_cached_response.fetch('token')
+          read_from_cache.fetch('token')
         end
 
         private
@@ -67,30 +66,13 @@ module ActiveStorage
         end
 
         def token_expired?
-          parse_cached_response.fetch('expires_at') < Time.now
+          read_from_cache.fetch('expires_at') < Time.now
         rescue TypeError, NoMethodError
           true
         end
 
-        def parse_cached_response
-          @parse_cached_response ||= JSON.parse(cache.read(cache_key))
-        rescue TypeError
-          null_cache_placeholder
-        end
-
         def cache_response
           cache.write(cache_key, Response.new(request).to_cache)
-        end
-
-        def null_cache_placeholder
-          {
-            'headers' => nil,
-            'token' => nil,
-            'expires_at' => nil,
-            'code' => nil,
-            'message' => nil,
-            'body' => nil
-          }
         end
       end
     end
