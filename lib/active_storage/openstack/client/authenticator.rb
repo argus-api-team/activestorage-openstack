@@ -7,8 +7,11 @@ module ActiveStorage
       class Authenticator
         include ActiveModel::Model
 
+        # rubocop:disable Metrics/LineLength
         autoload :Request, File.expand_path('authenticator/request', __dir__)
         autoload :Response, File.expand_path('authenticator/response', __dir__)
+        autoload :HTTPSClient, File.expand_path('authenticator/https_client', __dir__)
+        # rubocop:enable Metrics/LineLength
 
         attr_reader :username, :password, :cache
 
@@ -41,7 +44,7 @@ module ActiveStorage
 
           authenticate
           yield.tap do |request|
-            request.add_field('X-Auth-Token', token)
+            request.add_field('x-auth-token', token)
           end
         end
 
@@ -75,14 +78,14 @@ module ActiveStorage
         def parse_cached_response
           @parse_cached_response ||= JSON.parse(cache.read(cache_key))
         rescue TypeError
-          failed_cache_placeholder
+          null_cache_placeholder
         end
 
         def cache_response
           cache.write(cache_key, Response.new(request).to_cache)
         end
 
-        def failed_cache_placeholder
+        def null_cache_placeholder
           {
             'headers' => nil,
             'token' => nil,

@@ -5,11 +5,12 @@ module ActiveStorage
     class Client
       # :reek:IrresponsibleModule
       class Authenticator
-        # Response simplifies interaction with the request response.
+        # Response extracts meaningful data from HTTP response.
+        # It provides a method to easily cache it.
         class Response
           attr_reader :request
 
-          delegate :code, :message, :body, to: :request
+          delegate :code, :message, :body, :header, to: :request
 
           def initialize(request)
             @request = request
@@ -20,7 +21,7 @@ module ActiveStorage
           end
 
           def token
-            headers.dig('x-subject-token')
+            header.fetch('X-Subject-Token') { nil }
           end
 
           def expires_at
@@ -32,12 +33,12 @@ module ActiveStorage
           def to_cache
             # We cache JSON rather than ruby object. Simple object.
             {
-              'headers': headers,
-              'token': token,
-              'expires_at': expires_at,
-              'code': Integer(code),
-              'message': message,
-              'body': body_as_hash
+              headers: headers,
+              token: token,
+              expires_at: expires_at,
+              code: Integer(code),
+              message: message,
+              body: body_as_hash
             }.to_json
           end
 

@@ -14,11 +14,10 @@ module ActiveStorage
           def initialize(credentials:, uri:)
             @credentials = credentials
             @uri = uri
-            @https_client = Net::HTTP.new(uri.host, uri.port)
+            @https_client = HTTPSClient.new(uri: uri).client
           end
 
           def call
-            set_ssl
             set_headers
             set_body
             https_client.request(request)
@@ -26,13 +25,8 @@ module ActiveStorage
 
           private
 
-          def set_ssl
-            https_client.use_ssl = true
-            https_client.verify_mode = OpenSSL::SSL::VERIFY_NONE
-          end
-
           def set_headers
-            request['Content-Type'] = 'application/json'
+            request.add_field('Content-Type', 'application/json')
           end
 
           def request
