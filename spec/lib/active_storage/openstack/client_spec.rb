@@ -35,4 +35,17 @@ describe ActiveStorage::Openstack::Client do
       )
     end
   end
+
+  describe '#storage' do
+    subject(:storage) { client.storage(container: container, region: region) }
+
+    let(:container) { Rails.application.config.x.openstack.fetch(:container) }
+    let(:region) { Rails.application.config.x.openstack.fetch(:region) }
+
+    it do
+      expect(storage).to an_instance_of(
+        ActiveStorage::Openstack::Client::Storage
+      )
+    end
+  end
 end
