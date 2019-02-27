@@ -11,14 +11,18 @@ module ActiveStorage
         include ActiveModel::Model
         include Helpers::HTTPSClient
 
-        autoload :ObjectStoreEndpointURL,
-                 File.expand_path('storage/object_store_endpoint_url', __dir__)
-        autoload :GetObject, File.expand_path('storage/get_object', __dir__)
-        autoload :PutObject, File.expand_path('storage/put_object', __dir__)
+        load_path = File.expand_path('storage', __dir__)
+        autoload :DeleteObject, "#{load_path}/delete_object"
+        autoload :GetObject, "#{load_path}/get_object"
+        autoload :ObjectStoreURL, "#{load_path}/object_store_url"
+        autoload :PutObject, "#{load_path}/put_object"
 
         attr_reader :authenticator, :container, :region
 
-        delegate :cache, :cache_key, :authenticate_request, to: :authenticator
+        delegate :authenticate_request,
+                 :cache,
+                 :cache_key,
+                 to: :authenticator
 
         validates :authenticator,
                   :container,
@@ -32,7 +36,7 @@ module ActiveStorage
         end
 
         def uri
-          @uri ||= URI(ObjectStoreEndpointURL.new(
+          @uri ||= URI(ObjectStoreURL.new(
             authenticator: authenticator,
             container: container,
             region: region
@@ -47,9 +51,21 @@ module ActiveStorage
           https_client.request(request)
         end
 
-        def put_object(file, path)
+        def put_object(file, path, checksum: nil)
           request = authenticate_request do
-            PutObject.new(file: file, uri: absolute_uri(path)).request
+            PutObject.new(
+              file: file,
+              uri: absolute_uri(path),
+              checksum: checksum
+            ).request
+          end
+
+          https_client.request(request)
+        end
+
+        def delete_object(path)
+          request = authenticate_request do
+            DeleteObject.new(uri: absolute_uri(path)).request
           end
 
           https_client.request(request)

@@ -19,33 +19,32 @@ http_interactions:
       Content-Type:
       - image/jpeg
       Etag:
-      - 5855b4de770b090c49cb5a24d0795865
+      - bad_checksum
       X-Auth-Token:
       - gAAAAABcdnOC30NCWEtbvOHaB3DjbD_gFRAxK79OzSgPAj6rbvMfwO3CyJ6xkMqLhIhx_z6yrzKWY5GU6Wz_GczUuDr0_oceEx0V46Xb1YSWTo1vtY2BLoGJfKWRsfwKKQeda7ol2IhpnxzDP0fiq_-QlMWaJDQF7mML-a2l4IwZMLwn2ADz6io
   response:
     status:
-      code: 201
-      message: Created
+      code: 422
+      message: Unprocessable Entity
     headers:
       Last-Modified:
-      - Wed, 27 Feb 2019 11:25:19 GMT
+      - Wed, 27 Feb 2019 11:29:17 GMT
       Content-Length:
-      - '0'
-      Etag:
-      - 5855b4de770b090c49cb5a24d0795865
+      - '93'
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - tx5ff18e2a62f8444ab6d64-005c76739e
+      - tx29b54ebf0de843f18e1b9-005c76748c
       X-Openstack-Request-Id:
-      - tx5ff18e2a62f8444ab6d64-005c76739e
+      - tx29b54ebf0de843f18e1b9-005c76748c
       Date:
-      - Wed, 27 Feb 2019 11:25:18 GMT
+      - Wed, 27 Feb 2019 11:29:16 GMT
       X-Iplb-Instance:
-      - '12309'
+      - '12308'
     body:
       encoding: UTF-8
-      string: ''
+      string: "<html><h1>Unprocessable Entity</h1><p>Unable to process the contained
+        instructions</p></html>"
     http_version: 
-  recorded_at: Wed, 27 Feb 2019 11:25:18 GMT
+  recorded_at: Wed, 27 Feb 2019 11:29:16 GMT
 recorded_with: VCR 4.0.0

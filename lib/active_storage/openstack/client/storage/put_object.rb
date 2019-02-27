@@ -12,11 +12,12 @@ module ActiveStorage
         # Extracts the object store URL from cached payload mathing the
         # specified region.
         class PutObject
-          attr_reader :file, :uri
+          attr_reader :checksum, :file, :uri
 
-          def initialize(file:, uri:)
+          def initialize(file:, uri:, checksum: nil)
             @file = file
             @uri = uri
+            @checksum = checksum
           end
 
           def request
@@ -34,6 +35,8 @@ module ActiveStorage
           end
 
           def md5_checksum
+            return checksum if checksum.present?
+
             Digest::MD5.file(file).hexdigest
           end
 

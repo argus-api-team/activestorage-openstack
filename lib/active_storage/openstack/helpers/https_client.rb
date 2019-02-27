@@ -3,7 +3,7 @@
 module ActiveStorage
   module Openstack
     module Helpers
-      # Activates SSL.
+      # Enables SSL mode for the specified uri.
       module HTTPSClient
         def https_client
           Net::HTTP.new(uri.host, uri.port).tap do |client|

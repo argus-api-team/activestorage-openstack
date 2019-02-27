@@ -38,16 +38,14 @@ describe ActiveStorage::Openstack::Client::Authenticator do
   end
 
   describe '#authenticate', vcr: {
-    cassette_name: "#{cassettes_path}/authenticate",
-    record: :once
+    cassette_name: "#{cassettes_path}/authenticate"
   } do
     subject(:authenticate) { authenticator.authenticate }
 
     it { is_expected.to be_truthy }
 
     context 'with invalid credentials', vcr: {
-      cassette_name: "#{cassettes_path}/authenticate-invalid",
-      record: :once
+      cassette_name: "#{cassettes_path}/authenticate-invalid"
     } do
       let(:password) { 'wrong_password' }
 
@@ -61,8 +59,7 @@ describe ActiveStorage::Openstack::Client::Authenticator do
     it { is_expected.to be_nil }
 
     context 'when authenticated', vcr: {
-      cassette_name: "#{cassettes_path}/authenticate",
-      record: :once
+      cassette_name: "#{cassettes_path}/authenticate"
     } do
       before do
         authenticator.authenticate
@@ -73,8 +70,7 @@ describe ActiveStorage::Openstack::Client::Authenticator do
   end
 
   describe '#authenticate_request', vcr: {
-    cassette_name: "#{cassettes_path}/authenticate",
-    record: :once
+    cassette_name: "#{cassettes_path}/authenticate"
   } do
     subject(:authenticate_request) do
       authenticator.authenticate_request { request }

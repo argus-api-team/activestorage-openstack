@@ -8,7 +8,7 @@ module ActiveStorage
       class Storage
         # Extracts the object store URL from cached payload mathing the
         # specified region.
-        class GetObject
+        class DeleteObject
           attr_reader :uri
 
           def initialize(uri:)
@@ -16,10 +16,10 @@ module ActiveStorage
           end
 
           def request
-            Net::HTTP::Get.new(uri)
+            Net::HTTP::Delete.new(uri)
           end
         end
-        private_constant :GetObject
+        private_constant :DeleteObject
       end
     end
   end

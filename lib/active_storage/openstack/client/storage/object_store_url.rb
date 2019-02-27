@@ -10,7 +10,7 @@ module ActiveStorage
       class Storage
         # Extracts the object store URL from cached payload mathing the
         # specified region.
-        class ObjectStoreEndpointURL
+        class ObjectStoreURL
           include Helpers::CacheReadable
 
           attr_reader :authenticator, :container, :region
@@ -45,7 +45,7 @@ module ActiveStorage
             read_from_cache.dig('body', 'token', 'catalog') || []
           end
         end
-        private_constant :ObjectStoreEndpointURL
+        private_constant :ObjectStoreURL
       end
     end
   end

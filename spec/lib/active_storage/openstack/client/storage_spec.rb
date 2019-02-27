@@ -5,17 +5,30 @@ require "#{APP_ROOT}/lib/active_storage/openstack/client"
 require "#{APP_ROOT}/lib/active_storage/openstack/client/storage"
 
 describe ActiveStorage::Openstack::Client::Storage do
+  cassette_path = 'lib/active_storage/openstack/storage'
+
   subject(:storage) do
     described_class.new authenticator: authenticator,
                         container: container,
                         region: region
   end
 
+  let(:username) { Rails.application.credentials.openstack.fetch(:username) }
+  let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
   let(:authenticator) do
-    instance_double(ActiveStorage::Openstack::Client::Authenticator)
+    ActiveStorage::Openstack::Client::Authenticator.new username: username,
+                                                        password: password
   end
   let(:container) { Rails.application.config.x.openstack.fetch(:container) }
   let(:region) { Rails.application.config.x.openstack.fetch(:region) }
+
+  before do
+    VCR.use_cassette(
+      'lib/active_storage/openstack/authenticator/authenticate'
+    ) do
+      authenticator&.authenticate
+    end
+  end
 
   it { is_expected.to be_valid }
 
@@ -40,70 +53,61 @@ describe ActiveStorage::Openstack::Client::Storage do
   describe '#uri' do
     subject(:uri) { storage.uri }
 
-    before do
-      allow(authenticator).to receive(:cache).and_return(cache)
-      allow(authenticator).to receive(:cache_key).and_return('cache_key')
-    end
-
-    let(:cache) { instance_double(ActiveSupport::Cache::Store, read: payload) }
-    let(:payload) do
-      file_fixture('json/authenticator/cached_payload.json').read
-    end
-
     it { is_expected.to be_an_instance_of(URI::HTTPS) }
     it { expect(uri.to_s).to include(storage.region.downcase) }
     it { expect(uri.to_s).to include(storage.container) }
   end
 
   describe '#get_object', vcr: {
-    cassette_name: 'lib/active_storage/openstack/storage/get_object',
-    record: :once
+    cassette_name: "#{cassette_path}/get_object"
   } do
     subject(:get_object) { storage.get_object(object_path) }
 
-    before do
-      authenticator.authenticate
-    end
-
-    let(:username) { Rails.application.credentials.openstack.fetch(:username) }
-    let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
-    let(:authenticator) do
-      ActiveStorage::Openstack::Client::Authenticator.new username: username,
-                                                          password: password
-    end
     let(:filename) { 'test.jpg' }
     let(:object_path) { "/fixtures/files/images/#{filename}" }
-    let(:file) { file_fixture("images/#{filename}") }
-    let(:checksum_md5) { Digest::MD5.file(file).hexdigest }
 
-    it 'gets the specified file' do
-      expect(get_object.fetch('etag')).to eq(checksum_md5)
+    it 'returns Success code' do
+      expect(Integer(get_object.code)).to equal(200) # Success
     end
   end
 
-  describe '#put_object', vcr: {
-    cassette_name: 'lib/active_storage/openstack/storage/put_object',
-    record: :once
-  } do
-    subject(:put_object) { storage.put_object(file, object_path) }
-
-    before do
-      authenticator.authenticate
+  describe '#put_object' do
+    subject(:put_object) do
+      storage.put_object(file, object_path, checksum: checksum)
     end
 
-    let(:username) { Rails.application.credentials.openstack.fetch(:username) }
-    let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
-    let(:authenticator) do
-      ActiveStorage::Openstack::Client::Authenticator.new username: username,
-                                                          password: password
-    end
     let(:filename) { 'test.jpg' }
     let(:object_path) { "/fixtures/files/images/#{filename}" }
     let(:file) { file_fixture("images/#{filename}") }
-    let(:checksum_md5) { Digest::MD5.file(file).hexdigest }
+    let(:checksum) { Digest::MD5.file(file).hexdigest }
 
-    it 'gets the specified file' do
-      expect(put_object.fetch('etag')).to eq(checksum_md5)
+    it 'returns Created code', vcr: {
+      cassette_name: "#{cassette_path}/put_object"
+    } do
+      expect(Integer(put_object.code)).to equal(201) # Created
+    end
+
+    context 'when checksum fails', vcr: {
+      cassette_name: "#{cassette_path}/put_object-bad_checksum"
+    } do
+      let(:checksum) { 'bad_checksum' }
+
+      it 'returns Unprocessable Entity code' do
+        expect(Integer(put_object.code)).to equal(422) # Unprocessable Entity
+      end
+    end
+  end
+
+  describe '#delete_object', vcr: {
+    cassette_name: "#{cassette_path}/delete_object"
+  } do
+    subject(:delete_object) { storage.delete_object(object_path) }
+
+    let(:filename) { 'test.jpg' }
+    let(:object_path) { "/fixtures/files/images/#{filename}" }
+
+    it 'returns No Content code' do
+      expect(Integer(delete_object.code)).to equal(204) # No content
     end
   end
 end

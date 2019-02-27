@@ -6,7 +6,8 @@ module ActiveStorage
     class Client
       include ActiveModel::Model
 
-      autoload :Authenticator, File.expand_path('client/authenticator', __dir__)
+      load_path = File.expand_path('client', __dir__)
+      autoload :Authenticator, "#{load_path}/authenticator"
 
       attr_reader :username, :password, :cache
 

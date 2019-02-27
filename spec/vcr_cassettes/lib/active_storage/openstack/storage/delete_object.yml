@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABcdlWoigmdoX5SBYyoHojFbTAtPBcQqw4GBIy2oINJJKuvpw9InzOoiW00CxFOHYuobahLCVju7a9Gyq97zyMA8Kc2qlORaPGrvCIAidJ21Uq2X8-mHsKFttMC9_99v7wOfd7J6-wutOq6wemCO0cLoOZbOIRJExWGSmcRZj6oitdN6P4
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - txb028ac57b58f451f8c77c-005c7665af
+      X-Openstack-Request-Id:
+      - txb028ac57b58f451f8c77c-005c7665af
+      Date:
+      - Wed, 27 Feb 2019 10:25:51 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 27 Feb 2019 10:25:51 GMT
+recorded_with: VCR 4.0.0

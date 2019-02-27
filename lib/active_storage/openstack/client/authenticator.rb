@@ -10,8 +10,9 @@ module ActiveStorage
         include ActiveModel::Model
         include Helpers::CacheReadable
 
-        autoload :Request, File.expand_path('authenticator/request', __dir__)
-        autoload :Response, File.expand_path('authenticator/response', __dir__)
+        load_path = File.expand_path('authenticator', __dir__)
+        autoload :Request, "#{load_path}/request"
+        autoload :Response, "#{load_path}/response"
 
         attr_reader :username, :password, :cache
 
