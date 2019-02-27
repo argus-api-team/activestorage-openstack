@@ -21,8 +21,6 @@ module ActiveStorage
         attr_reader :authenticator, :container, :region
 
         delegate :authenticate_request,
-                 :cache,
-                 :cache_key,
                  to: :authenticator
 
         validates :authenticator,
