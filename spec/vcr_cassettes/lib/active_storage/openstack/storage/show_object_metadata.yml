@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABcdnOC30NCWEtbvOHaB3DjbD_gFRAxK79OzSgPAj6rbvMfwO3CyJ6xkMqLhIhx_z6yrzKWY5GU6Wz_GczUuDr0_oceEx0V46Xb1YSWTo1vtY2BLoGJfKWRsfwKKQeda7ol2IhpnxzDP0fiq_-QlMWaJDQF7mML-a2l4IwZMLwn2ADz6io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '367'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Wed, 27 Feb 2019 11:26:54 GMT
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1551266813.40544'
+      Content-Type:
+      - image/jpeg
+      X-Trans-Id:
+      - tx0fa68c0e594c44d8af4b5-005c768350
+      X-Openstack-Request-Id:
+      - tx0fa68c0e594c44d8af4b5-005c768350
+      Date:
+      - Wed, 27 Feb 2019 12:32:17 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 27 Feb 2019 12:32:17 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: head
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/unknown_file.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABcdnOC30NCWEtbvOHaB3DjbD_gFRAxK79OzSgPAj6rbvMfwO3CyJ6xkMqLhIhx_z6yrzKWY5GU6Wz_GczUuDr0_oceEx0V46Xb1YSWTo1vtY2BLoGJfKWRsfwKKQeda7ol2IhpnxzDP0fiq_-QlMWaJDQF7mML-a2l4IwZMLwn2ADz6io
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - tx9d0f1e3e65434d92b037a-005c76841d
+      X-Openstack-Request-Id:
+      - tx9d0f1e3e65434d92b037a-005c76841d
+      Date:
+      - Wed, 27 Feb 2019 12:35:41 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 27 Feb 2019 12:35:41 GMT
+recorded_with: VCR 4.0.0

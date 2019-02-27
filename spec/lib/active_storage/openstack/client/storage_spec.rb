@@ -110,4 +110,29 @@ describe ActiveStorage::Openstack::Client::Storage do
       expect(Integer(delete_object.code)).to equal(204) # No content
     end
   end
+
+  describe '#show_object_metadata', vcr: {
+    cassette_name: "#{cassette_path}/show_object_metadata"
+  } do
+    subject(:show_object_metadata) do
+      storage.show_object_metadata(object_path)
+    end
+
+    let(:filename) { 'test.jpg' }
+    let(:object_path) { "/fixtures/files/images/#{filename}" }
+
+    it 'returns Success code' do
+      expect(Integer(show_object_metadata.code)).to equal(200) # Success
+    end
+
+    context 'when file does not exist', vcr: {
+      cassette_name: "#{cassette_path}/show_object_metadata-not_found"
+    } do
+      let(:object_path) { '/unknown_file.jpg' }
+
+      it 'returns Not found code' do
+        expect(Integer(show_object_metadata.code)).to equal(404) # Not found
+      end
+    end
+  end
 end

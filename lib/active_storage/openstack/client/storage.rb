@@ -16,6 +16,7 @@ module ActiveStorage
         autoload :GetObject, "#{load_path}/get_object"
         autoload :ObjectStoreURL, "#{load_path}/object_store_url"
         autoload :PutObject, "#{load_path}/put_object"
+        autoload :ShowObjectMetadata, "#{load_path}/show_object_metadata"
 
         attr_reader :authenticator, :container, :region
 
@@ -66,6 +67,14 @@ module ActiveStorage
         def delete_object(path)
           request = authenticate_request do
             DeleteObject.new(uri: absolute_uri(path)).request
+          end
+
+          https_client.request(request)
+        end
+
+        def show_object_metadata(path)
+          request = authenticate_request do
+            ShowObjectMetadata.new(uri: absolute_uri(path)).request
           end
 
           https_client.request(request)
