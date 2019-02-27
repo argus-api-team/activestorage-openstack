@@ -3,7 +3,7 @@
 module ActiveStorage
   module Openstack
     module Helpers
-      # Prepares authentication request.
+      # Activates SSL.
       module HTTPSClient
         def https_client
           Net::HTTP.new(uri.host, uri.port).tap do |client|

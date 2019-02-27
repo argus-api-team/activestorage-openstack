@@ -8,7 +8,7 @@ module ActiveStorage
       # It retrieves token from OpenStack API and caches it.
       class Authenticator
         include ActiveModel::Model
-        include ::ActiveStorage::Openstack::Helpers::CacheReadable
+        include Helpers::CacheReadable
 
         autoload :Request, File.expand_path('authenticator/request', __dir__)
         autoload :Response, File.expand_path('authenticator/response', __dir__)

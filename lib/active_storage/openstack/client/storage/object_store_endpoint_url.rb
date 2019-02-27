@@ -11,7 +11,7 @@ module ActiveStorage
         # Extracts the object store URL from cached payload mathing the
         # specified region.
         class ObjectStoreEndpointURL
-          include ::ActiveStorage::Openstack::Helpers::CacheReadable
+          include Helpers::CacheReadable
 
           attr_reader :authenticator, :container, :region
 

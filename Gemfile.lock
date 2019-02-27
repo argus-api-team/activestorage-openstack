@@ -286,6 +286,7 @@ DEPENDENCIES
   guard-reek
   guard-rspec
   guard-rubocop
+  mimemagic
   rails-controller-testing
   reek
   rspec-rails (~> 3.8)

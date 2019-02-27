@@ -80,4 +80,30 @@ describe ActiveStorage::Openstack::Client::Storage do
       expect(get_object.fetch('etag')).to eq(checksum_md5)
     end
   end
+
+  describe '#put_object', vcr: {
+    cassette_name: 'lib/active_storage/openstack/storage/put_object',
+    record: :once
+  } do
+    subject(:put_object) { storage.put_object(file, object_path) }
+
+    before do
+      authenticator.authenticate
+    end
+
+    let(:username) { Rails.application.credentials.openstack.fetch(:username) }
+    let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
+    let(:authenticator) do
+      ActiveStorage::Openstack::Client::Authenticator.new username: username,
+                                                          password: password
+    end
+    let(:filename) { 'test.jpg' }
+    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:file) { file_fixture("images/#{filename}") }
+    let(:checksum_md5) { Digest::MD5.file(file).hexdigest }
+
+    it 'gets the specified file' do
+      expect(put_object.fetch('etag')).to eq(checksum_md5)
+    end
+  end
 end

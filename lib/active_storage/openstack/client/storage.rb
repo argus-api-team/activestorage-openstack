@@ -9,10 +9,12 @@ module ActiveStorage
       # It interacts with Containers/Objects OpenStack API.
       class Storage
         include ActiveModel::Model
-        include ::ActiveStorage::Openstack::Helpers::HTTPSClient
+        include Helpers::HTTPSClient
 
         autoload :ObjectStoreEndpointURL,
                  File.expand_path('storage/object_store_endpoint_url', __dir__)
+        autoload :GetObject, File.expand_path('storage/get_object', __dir__)
+        autoload :PutObject, File.expand_path('storage/put_object', __dir__)
 
         attr_reader :authenticator, :container, :region
 
@@ -30,7 +32,7 @@ module ActiveStorage
         end
 
         def uri
-          URI(ObjectStoreEndpointURL.new(
+          @uri ||= URI(ObjectStoreEndpointURL.new(
             authenticator: authenticator,
             container: container,
             region: region
@@ -38,12 +40,25 @@ module ActiveStorage
         end
 
         def get_object(path)
-          absolute_uri = URI(uri.to_s + path)
           request = authenticate_request do
-            Net::HTTP::Get.new(absolute_uri)
+            GetObject.new(uri: absolute_uri(path)).request
           end
 
           https_client.request(request)
+        end
+
+        def put_object(file, path)
+          request = authenticate_request do
+            PutObject.new(file: file, uri: absolute_uri(path)).request
+          end
+
+          https_client.request(request)
+        end
+
+        private
+
+        def absolute_uri(path)
+          URI(uri.to_s + path)
         end
       end
     end

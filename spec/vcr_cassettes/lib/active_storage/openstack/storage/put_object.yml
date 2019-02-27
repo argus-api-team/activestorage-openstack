@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADIAMgMBIgACEQEDEQH/xABaAAEBAQEBAAAAAAAAAAAAAAAAAgQBBxABAAICAQQDAAAAAAAAAAAAAAECAxESBCExUUFCoQEBAAAAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9MAAAAAAAABOWs3xXpHm1ZgFDFg6XNjve17VndZiOPb1rxHxr9lzL0me80nnS0xERfl9tTv122DcIw0nHhx0tblNaxEz77LAAAAAAAAAAAAAAAAAAB//2Q==
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Content-Type:
+      - image/jpeg
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Auth-Token:
+      - gAAAAABcdXgmFHLhAf_HGejcCsFxQP8rF4Nn8LSt01cjKpuSAPP7Kbpqo-A7fSi43ZLJechoEcqE2igVG8Zn2EuuH0Jv6Prx0NVm9LehU9IJnPQ_BXHI7DIIREvvDRbQz_bCD8aMynYmuZpPx9gbdnZ-L-sW3TXAy0eWzHPCVJMh9UWX1-c_pxM
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Last-Modified:
+      - Wed, 27 Feb 2019 09:13:28 GMT
+      Content-Length:
+      - '0'
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - txba8a4ac019514ccca122e-005c7654b7
+      X-Openstack-Request-Id:
+      - txba8a4ac019514ccca122e-005c7654b7
+      Date:
+      - Wed, 27 Feb 2019 09:13:27 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 27 Feb 2019 09:13:24 GMT
+recorded_with: VCR 4.0.0
