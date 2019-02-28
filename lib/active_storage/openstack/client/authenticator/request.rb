@@ -8,6 +8,8 @@ module ActiveStorage
     class Client
       # :reek:IrresponsibleModule
       class Authenticator
+        autoload :Response, File.expand_path('response', __dir__)
+
         # Prepares authentication request.
         class Request
           include Helpers::HTTPSClient
@@ -27,6 +29,10 @@ module ActiveStorage
             https_client.request(request)
           end
 
+          def response_to_cache
+            response.to_cache
+          end
+
           private
 
           def set_headers
@@ -35,6 +41,10 @@ module ActiveStorage
 
           def request
             @request ||= Net::HTTP::Post.new(uri)
+          end
+
+          def response
+            @response ||= Response.new(call)
           end
 
           def set_body

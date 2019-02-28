@@ -12,7 +12,6 @@ module ActiveStorage
 
         load_path = File.expand_path('authenticator', __dir__)
         autoload :Request, "#{load_path}/request"
-        autoload :Response, "#{load_path}/response"
 
         attr_reader :cache,
                     :password,
@@ -56,7 +55,7 @@ module ActiveStorage
         private
 
         def cache_response
-          cache.write(cache_key, Response.new(request).to_cache)
+          cache.write(cache_key, request.response_to_cache)
         end
 
         def token_expired?
@@ -74,12 +73,12 @@ module ActiveStorage
           end
         end
 
-        def credentials
-          OpenStruct.new(username: username, password: password)
+        def request
+          @request ||= Request.new(credentials: credentials, uri: uri)
         end
 
-        def request
-          @request ||= Request.new(credentials: credentials, uri: uri).call
+        def credentials
+          OpenStruct.new(username: username, password: password)
         end
       end
     end
