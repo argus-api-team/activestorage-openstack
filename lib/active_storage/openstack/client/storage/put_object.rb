@@ -31,7 +31,7 @@ module ActiveStorage
           private
 
           def content_type
-            MimeMagic.by_path(File.basename(file))
+            MimeMagic.by_magic(binary_file)
           end
 
           def md5_checksum
