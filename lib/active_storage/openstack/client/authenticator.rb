@@ -26,24 +26,18 @@ module ActiveStorage
         def initialize(
           username:,
           password:,
-          authentication_url: Rails.application.config.x.openstack
-                                   .fetch(:authentication_url),
+          uri: Rails.application.config.x.openstack.fetch(:authentication_url),
           cache: Rails.cache
         )
           @username = username
           @password = password
-          @uri = URI(authentication_url)
+          @uri = URI(uri)
           @cache = cache
         end
 
         def authenticate
           cache_response if token_expired?
-          case read_from_cache.fetch('code')
-          when 201
-            true
-          else
-            false
-          end
+          authentication_succeed?
         end
 
         def authenticate_request(&_request)
@@ -61,12 +55,8 @@ module ActiveStorage
 
         private
 
-        def credentials
-          OpenStruct.new(username: username, password: password)
-        end
-
-        def request
-          @request ||= Request.new(credentials: credentials, uri: uri).call
+        def cache_response
+          cache.write(cache_key, Response.new(request).to_cache)
         end
 
         def token_expired?
@@ -75,8 +65,21 @@ module ActiveStorage
           true
         end
 
-        def cache_response
-          cache.write(cache_key, Response.new(request).to_cache)
+        def authentication_succeed?
+          case read_from_cache.fetch('code')
+          when 201
+            true
+          else
+            false
+          end
+        end
+
+        def credentials
+          OpenStruct.new(username: username, password: password)
+        end
+
+        def request
+          @request ||= Request.new(credentials: credentials, uri: uri).call
         end
       end
     end
