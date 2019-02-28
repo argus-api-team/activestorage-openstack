@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../helpers/cache_readerable'
+require_relative '../helpers/cacheable_body'
 
 module ActiveStorage
   module Openstack
@@ -55,7 +56,7 @@ module ActiveStorage
         private
 
         def cache_response
-          cache.write(cache_key, request.response_to_cache)
+          cache.write(cache_key, request.body_to_cache)
         end
 
         def token_expired?
@@ -74,7 +75,10 @@ module ActiveStorage
         end
 
         def request
-          @request ||= Request.new(credentials: credentials, uri: uri)
+          @request ||= Request.new(
+            credentials: credentials,
+            uri: uri
+          ).call.extend(Helpers::CacheableBody)
         end
 
         def credentials
