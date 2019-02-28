@@ -10,7 +10,7 @@ module ActiveStorage
       class Authenticator
         autoload :Response, File.expand_path('response', __dir__)
 
-        # Prepares authentication request.
+        # Handles authentication request.
         class Request
           include Helpers::HTTPSClient
 
