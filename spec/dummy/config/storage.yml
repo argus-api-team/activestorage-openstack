@@ -1,7 +1,7 @@
 openstack:
   service: OpenStack
   container: <%= Rails.application.config.x.openstack.fetch(:container) %>
-  auth_url: <%= Rails.application.config.x.openstack.fetch(:auth_url) %>
+  authentication_url: <%= Rails.application.config.x.openstack.fetch(:authentication_url) %>
   region: <%= Rails.application.config.x.openstack.fetch(:region) %>
   credentials:
     username: <%= Rails.application.credentials.openstack.fetch(:username) %>

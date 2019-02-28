@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../helpers/cache_readable'
+require_relative '../helpers/cache_readerable'
 
 module ActiveStorage
   module Openstack
@@ -8,21 +8,31 @@ module ActiveStorage
       # It retrieves token from OpenStack API and caches it.
       class Authenticator
         include ActiveModel::Model
-        include Helpers::CacheReadable
+        include Helpers::CacheReaderable
 
         load_path = File.expand_path('authenticator', __dir__)
         autoload :Request, "#{load_path}/request"
         autoload :Response, "#{load_path}/response"
 
-        attr_reader :username, :password, :cache
+        attr_reader :cache,
+                    :password,
+                    :uri,
+                    :username
 
-        validates :username,
-                  :password,
+        validates :password,
+                  :username,
                   presence: true
 
-        def initialize(username:, password:, cache: Rails.cache)
+        def initialize(
+          username:,
+          password:,
+          authentication_url: Rails.application.config.x.openstack
+                                   .fetch(:authentication_url),
+          cache: Rails.cache
+        )
           @username = username
           @password = password
+          @uri = URI(authentication_url)
           @cache = cache
         end
 
@@ -51,19 +61,12 @@ module ActiveStorage
 
         private
 
-        def authentication_uri
-          URI(Rails.application.config.x.openstack.fetch(:auth_url))
-        end
-
         def credentials
           OpenStruct.new(username: username, password: password)
         end
 
         def request
-          @request ||= Request.new(
-            credentials: credentials,
-            uri: authentication_uri
-          ).call
+          @request ||= Request.new(credentials: credentials, uri: uri).call
         end
 
         def token_expired?

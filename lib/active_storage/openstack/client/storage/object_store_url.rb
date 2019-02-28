@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../../helpers/cache_readable'
+require_relative '../../helpers/cache_readerable'
 
 module ActiveStorage
   module Openstack
@@ -11,7 +11,7 @@ module ActiveStorage
         # Extracts the object store URL from cached payload mathing the
         # specified region.
         class ObjectStoreURL
-          include Helpers::CacheReadable
+          include Helpers::CacheReaderable
 
           attr_reader :authenticator, :container, :region
 

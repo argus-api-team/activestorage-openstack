@@ -4,7 +4,7 @@ module ActiveStorage
   module Openstack
     module Helpers
       # Methods to interact with cache.
-      module CacheReadable
+      module CacheReaderable
         def cache_key
           "openstack/token-#{username}"
         end

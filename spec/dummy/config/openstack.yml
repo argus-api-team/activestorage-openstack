@@ -1,5 +1,5 @@
 default: &default
-  auth_url: https://auth.cloud.ovh.net/v3/auth/tokens
+  authentication_url: https://auth.cloud.ovh.net/v3/auth/tokens
   region: GRA3
 
 development:
