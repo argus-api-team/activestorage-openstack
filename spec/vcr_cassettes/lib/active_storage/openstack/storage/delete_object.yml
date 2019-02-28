@@ -11,12 +11,13 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      - application/json
       User-Agent:
       - Ruby
       Host:
       - storage.gra3.cloud.ovh.net
       X-Auth-Token:
-      - gAAAAABcdlWoigmdoX5SBYyoHojFbTAtPBcQqw4GBIy2oINJJKuvpw9InzOoiW00CxFOHYuobahLCVju7a9Gyq97zyMA8Kc2qlORaPGrvCIAidJ21Uq2X8-mHsKFttMC9_99v7wOfd7J6-wutOq6wemCO0cLoOZbOIRJExWGSmcRZj6oitdN6P4
+      - gAAAAABceBdSblSqvWum-jta1WUc-M0L4crDZIAbHm_GqvC_HG8E7X0Dr7mbWxs12-AJGhBYp9XlicjwGodCDPhp_NKodEm7O5QvnOqYuhrQvNLLO3SKCrlAoFmgQcLvqQp81uQkTzuSNtBnMobQJyj-wWeTx3R-Ku4x5TyYI3Sx01FEeSVcI4M
   response:
     status:
       code: 204
@@ -27,16 +28,16 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - txb028ac57b58f451f8c77c-005c7665af
+      - txe0005118649643a79330f-005c781ed0
       X-Openstack-Request-Id:
-      - txb028ac57b58f451f8c77c-005c7665af
+      - txe0005118649643a79330f-005c781ed0
       Date:
-      - Wed, 27 Feb 2019 10:25:51 GMT
+      - Thu, 28 Feb 2019 17:48:00 GMT
       X-Iplb-Instance:
-      - '12309'
+      - '12308'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 27 Feb 2019 10:25:51 GMT
+  recorded_at: Thu, 28 Feb 2019 17:48:00 GMT
 recorded_with: VCR 4.0.0

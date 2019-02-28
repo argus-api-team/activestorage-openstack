@@ -9,6 +9,7 @@ http_interactions:
     headers:
       Accept:
       - "*/*"
+      - application/json
       User-Agent:
       - Ruby
       Host:

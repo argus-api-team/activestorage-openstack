@@ -14,6 +14,7 @@ module ActiveStorage
         load_path = File.expand_path('storage', __dir__)
         autoload :DeleteObject, "#{load_path}/delete_object"
         autoload :GetObject, "#{load_path}/get_object"
+        autoload :ListObjects, "#{load_path}/list_objects"
         autoload :ObjectStoreURL, "#{load_path}/object_store_url"
         autoload :PutObject, "#{load_path}/put_object"
         autoload :ShowObjectMetadata, "#{load_path}/show_object_metadata"
@@ -43,42 +44,60 @@ module ActiveStorage
         end
 
         def get_object(path)
-          request = authenticate_request do
-            GetObject.new(uri: absolute_uri(path)).request
-          end
-
-          https_client.request(request)
+          https_client.request(
+            prepare_request do
+              GetObject.new(uri: absolute_uri(path)).request
+            end
+          )
         end
 
         def put_object(file, path, checksum: nil)
-          request = authenticate_request do
-            PutObject.new(
-              file: file,
-              uri: absolute_uri(path),
-              checksum: checksum
-            ).request
-          end
-
-          https_client.request(request)
+          https_client.request(
+            prepare_request do
+              PutObject.new(
+                file: file,
+                uri: absolute_uri(path),
+                checksum: checksum
+              ).request
+            end
+          )
         end
 
         def delete_object(path)
-          request = authenticate_request do
-            DeleteObject.new(uri: absolute_uri(path)).request
-          end
-
-          https_client.request(request)
+          https_client.request(
+            prepare_request do
+              DeleteObject.new(uri: absolute_uri(path)).request
+            end
+          )
         end
 
         def show_object_metadata(path)
-          request = authenticate_request do
-            ShowObjectMetadata.new(uri: absolute_uri(path)).request
-          end
+          https_client.request(
+            prepare_request do
+              ShowObjectMetadata.new(uri: absolute_uri(path)).request
+            end
+          )
+        end
 
-          https_client.request(request)
+        def list_objects(path, options = {})
+          https_client.request(
+            prepare_request do
+              ListObjects.new(uri: absolute_uri(path), options: options).request
+            end
+          )
         end
 
         private
+
+        def prepare_request
+          return unless block_given?
+
+          authenticate_request do
+            yield.tap do |request|
+              request.add_field('Accept', 'application/json')
+            end
+          end
+        end
 
         def absolute_uri(path)
           URI(uri.to_s + path)

@@ -135,4 +135,34 @@ describe ActiveStorage::Openstack::Client::Storage do
       end
     end
   end
+
+  describe '#list_objects', vcr: {
+    cassette_name: "#{cassette_path}/list_objects"
+  } do
+    subject(:list_objects) do
+      storage.list_objects(path, options)
+    end
+
+    let(:path) { '/' }
+    let(:options) { {} }
+
+    it 'returns Success code' do
+      expect(Integer(list_objects.code)).to equal(200) # Success
+    end
+
+    context 'with options', vcr: {
+      cassette_name: "#{cassette_path}/list_objects-with_options"
+    } do
+      let(:options) do
+        {
+          limit: 1,
+          prefix: 'fixtures'
+        }
+      end
+
+      it 'returns Success code' do
+        expect(Integer(list_objects.code)).to equal(200) # Success
+      end
+    end
+  end
 end

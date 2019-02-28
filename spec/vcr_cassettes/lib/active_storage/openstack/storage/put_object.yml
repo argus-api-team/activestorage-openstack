@@ -12,6 +12,7 @@ http_interactions:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
+      - application/json
       User-Agent:
       - Ruby
       Host:
@@ -21,14 +22,14 @@ http_interactions:
       Etag:
       - 5855b4de770b090c49cb5a24d0795865
       X-Auth-Token:
-      - gAAAAABcdnOC30NCWEtbvOHaB3DjbD_gFRAxK79OzSgPAj6rbvMfwO3CyJ6xkMqLhIhx_z6yrzKWY5GU6Wz_GczUuDr0_oceEx0V46Xb1YSWTo1vtY2BLoGJfKWRsfwKKQeda7ol2IhpnxzDP0fiq_-QlMWaJDQF7mML-a2l4IwZMLwn2ADz6io
+      - gAAAAABceBdSblSqvWum-jta1WUc-M0L4crDZIAbHm_GqvC_HG8E7X0Dr7mbWxs12-AJGhBYp9XlicjwGodCDPhp_NKodEm7O5QvnOqYuhrQvNLLO3SKCrlAoFmgQcLvqQp81uQkTzuSNtBnMobQJyj-wWeTx3R-Ku4x5TyYI3Sx01FEeSVcI4M
   response:
     status:
       code: 201
       message: Created
     headers:
       Last-Modified:
-      - Wed, 27 Feb 2019 11:25:19 GMT
+      - Thu, 28 Feb 2019 17:48:00 GMT
       Content-Length:
       - '0'
       Etag:
@@ -36,16 +37,16 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - tx5ff18e2a62f8444ab6d64-005c76739e
+      - tx016644e1e4084fa6a805d-005c781ecf
       X-Openstack-Request-Id:
-      - tx5ff18e2a62f8444ab6d64-005c76739e
+      - tx016644e1e4084fa6a805d-005c781ecf
       Date:
-      - Wed, 27 Feb 2019 11:25:18 GMT
+      - Thu, 28 Feb 2019 17:47:59 GMT
       X-Iplb-Instance:
-      - '12309'
+      - '12308'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Wed, 27 Feb 2019 11:25:18 GMT
+  recorded_at: Thu, 28 Feb 2019 17:47:59 GMT
 recorded_with: VCR 4.0.0

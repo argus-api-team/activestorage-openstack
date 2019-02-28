@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/?limit=1&prefix=fixtures
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABceBdSblSqvWum-jta1WUc-M0L4crDZIAbHm_GqvC_HG8E7X0Dr7mbWxs12-AJGhBYp9XlicjwGodCDPhp_NKodEm7O5QvnOqYuhrQvNLLO3SKCrlAoFmgQcLvqQp81uQkTzuSNtBnMobQJyj-wWeTx3R-Ku4x5TyYI3Sx01FEeSVcI4M
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '166'
+      X-Container-Object-Count:
+      - '5'
+      Accept-Ranges:
+      - bytes
+      X-Storage-Policy:
+      - PCS
+      Last-Modified:
+      - Thu, 06 Dec 2018 18:12:41 GMT
+      X-Container-Bytes-Used:
+      - '8425671'
+      X-Timestamp:
+      - '1542803957.63137'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Trans-Id:
+      - tx26694708fab84d41b7818-005c781ed0
+      X-Openstack-Request-Id:
+      - tx26694708fab84d41b7818-005c781ed0
+      Date:
+      - Thu, 28 Feb 2019 17:48:00 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: '[{"hash": "d41d8cd98f00b204e9800998ecf8427e", "last_modified": "2019-02-26T14:29:53.239530",
+        "bytes": 0, "name": "fixtures", "content_type": "application/directory"}]'
+    http_version: 
+  recorded_at: Thu, 28 Feb 2019 17:48:01 GMT
+recorded_with: VCR 4.0.0
