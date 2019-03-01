@@ -8,16 +8,16 @@ module ActiveStorage
     class Client
       # It interacts with Containers/Objects OpenStack API.
       class Storage
+        extend ActiveSupport::Autoload
         include ActiveModel::Model
         include Helpers::HTTPSClient
 
-        load_path = File.expand_path('storage', __dir__)
-        autoload :DeleteObject, "#{load_path}/delete_object"
-        autoload :GetObject, "#{load_path}/get_object"
-        autoload :ListObjects, "#{load_path}/list_objects"
-        autoload :ObjectStoreURL, "#{load_path}/object_store_url"
-        autoload :PutObject, "#{load_path}/put_object"
-        autoload :ShowObjectMetadata, "#{load_path}/show_object_metadata"
+        autoload :DeleteObject
+        autoload :GetObject
+        autoload :ListObjects
+        autoload :ObjectStoreURL
+        autoload :PutObject
+        autoload :ShowObjectMetadata
 
         attr_reader :authenticator, :container, :region
 

@@ -6,7 +6,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'active_storage/openstack/version'
 
 # Describe your gem and declare its dependencies:
-Gem::Specification.new do |spec|
+Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.platform    = Gem::Platform::RUBY
   spec.name        = 'activestorage-openstack'
   spec.version     = ActiveStorage::Openstack::VERSION
@@ -34,8 +34,10 @@ Gem::Specification.new do |spec|
     'README.md'
   ]
 
+  spec.add_dependency 'mimemagic'
   spec.add_dependency 'rails', '~> 5.2.2'
   spec.add_dependency 'tzinfo-data'
+  spec.add_dependency 'zeitwerk'
 
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
   spec.add_development_dependency 'sqlite3', '~> 1.3.6'
