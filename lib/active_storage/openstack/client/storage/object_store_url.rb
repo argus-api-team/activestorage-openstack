@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../helpers/cache_readerable'
-
 module ActiveStorage
   module Openstack
     # :reek:IrresponsibleModule

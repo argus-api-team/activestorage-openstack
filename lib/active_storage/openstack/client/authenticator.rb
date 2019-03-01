@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../helpers/cache_readerable'
-require_relative '../helpers/cacheable_body'
-
 module ActiveStorage
   module Openstack
     class Client

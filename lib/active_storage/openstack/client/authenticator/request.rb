@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative '../../helpers/https_client'
-
 module ActiveStorage
   module Openstack
     # :reek:IrresponsibleModule

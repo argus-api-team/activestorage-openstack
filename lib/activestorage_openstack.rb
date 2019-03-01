@@ -2,6 +2,6 @@
 
 require 'zeitwerk'
 
-# For debug
-# Zeitwerk::Loader.default_logger = method(:puts)
-Zeitwerk::Loader.for_gem.setup
+loader = Zeitwerk::Loader.for_gem
+# loader.logger = method(:puts) # For debug
+loader.setup
