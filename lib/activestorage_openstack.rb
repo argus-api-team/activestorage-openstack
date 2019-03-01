@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-require 'zeitwerk'
+require_relative 'support/zeitwerk'
 
 loader = Zeitwerk::Loader.for_gem
-# loader.logger = method(:puts) # For debug
+loader.inflector = CustomInflector.new
+loader.ignore(__FILE__) # this file does not define ActivestorageOpenstack
 loader.setup
