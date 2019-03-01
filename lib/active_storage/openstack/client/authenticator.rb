@@ -5,11 +5,8 @@ module ActiveStorage
     class Client
       # It retrieves token from OpenStack API and caches it.
       class Authenticator
-        extend ActiveSupport::Autoload
         include ActiveModel::Model
         include Helpers::CacheReaderable
-
-        autoload :Request
 
         attr_reader :cache,
                     :password,

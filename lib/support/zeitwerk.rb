@@ -9,6 +9,8 @@ class CustomInflector < Zeitwerk::Inflector
     case basename
     when 'https_client'
       'HTTPSClient'
+    when 'object_store_url'
+      'ObjectStoreURL'
     else
       super
     end

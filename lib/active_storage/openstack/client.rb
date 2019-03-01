@@ -4,11 +4,7 @@ module ActiveStorage
   module Openstack
     # Defines OpenStack client behaviours.
     class Client
-      extend ActiveSupport::Autoload
       include ActiveModel::Model
-
-      autoload :Authenticator
-      autoload :Storage
 
       attr_reader :username, :password, :cache
 

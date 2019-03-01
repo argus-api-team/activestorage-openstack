@@ -6,16 +6,8 @@ module ActiveStorage
     class Client
       # It interacts with Containers/Objects OpenStack API.
       class Storage
-        extend ActiveSupport::Autoload
         include ActiveModel::Model
         include Helpers::HTTPSClient
-
-        autoload :DeleteObject
-        autoload :GetObject
-        autoload :ListObjects
-        autoload :ObjectStoreURL
-        autoload :PutObject
-        autoload :ShowObjectMetadata
 
         attr_reader :authenticator, :container, :region
 
