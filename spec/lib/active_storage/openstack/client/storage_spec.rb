@@ -61,10 +61,10 @@ describe ActiveStorage::Openstack::Client::Storage do
   describe '#get_object', vcr: {
     cassette_name: "#{cassette_path}/get_object"
   } do
-    subject(:get_object) { storage.get_object(object_path) }
+    subject(:get_object) { storage.get_object(key) }
 
     let(:filename) { 'test.jpg' }
-    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "/fixtures/files/images/#{filename}" }
 
     it 'returns Success code' do
       expect(Integer(get_object.code)).to equal(200) # Success
@@ -73,11 +73,11 @@ describe ActiveStorage::Openstack::Client::Storage do
 
   describe '#put_object' do
     subject(:put_object) do
-      storage.put_object(file, object_path, checksum: checksum)
+      storage.put_object(key, file, checksum: checksum)
     end
 
     let(:filename) { 'test.jpg' }
-    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "/fixtures/files/images/#{filename}" }
     let(:file) { file_fixture("images/#{filename}") }
     let(:checksum) { Digest::MD5.file(file).hexdigest }
 
@@ -101,10 +101,10 @@ describe ActiveStorage::Openstack::Client::Storage do
   describe '#delete_object', vcr: {
     cassette_name: "#{cassette_path}/delete_object"
   } do
-    subject(:delete_object) { storage.delete_object(object_path) }
+    subject(:delete_object) { storage.delete_object(key) }
 
     let(:filename) { 'test.jpg' }
-    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "/fixtures/files/images/#{filename}" }
 
     it 'returns No Content code' do
       expect(Integer(delete_object.code)).to equal(204) # No content
@@ -115,11 +115,11 @@ describe ActiveStorage::Openstack::Client::Storage do
     cassette_name: "#{cassette_path}/show_object_metadata"
   } do
     subject(:show_object_metadata) do
-      storage.show_object_metadata(object_path)
+      storage.show_object_metadata(key)
     end
 
     let(:filename) { 'test.jpg' }
-    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "/fixtures/files/images/#{filename}" }
 
     it 'returns Success code' do
       expect(Integer(show_object_metadata.code)).to equal(200) # Success
@@ -128,7 +128,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     context 'when file does not exist', vcr: {
       cassette_name: "#{cassette_path}/show_object_metadata-not_found"
     } do
-      let(:object_path) { '/unknown_file.jpg' }
+      let(:key) { '/unknown_file.jpg' }
 
       it 'returns Not found code' do
         expect(Integer(show_object_metadata.code)).to equal(404) # Not found
@@ -166,17 +166,28 @@ describe ActiveStorage::Openstack::Client::Storage do
     end
   end
 
-  describe '#create_temporary_url', vcr: {
-    cassette_name: "#{cassette_path}/create_temporary_url"
-  } do
-    subject(:create_temporary_url) do
-      storage.create_temporary_url(object_path, request_method)
+  describe '#create_temporary_uri' do
+    subject(:create_temporary_uri) do
+      storage.create_temporary_uri(key, http_method)
     end
 
     let(:filename) { 'test.jpg' }
-    let(:object_path) { "/fixtures/files/images/#{filename}" }
-    let(:request_method) { 'GET' }
+    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:http_method) { 'GET' }
 
+    it { is_expected.to be_an_instance_of(URI::HTTPS) }
+  end
+
+  describe '#temporary_url' do
+    subject(:temporary_url) do
+      storage.temporary_url(key, http_method)
+    end
+
+    let(:filename) { 'test.jpg' }
+    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:http_method) { 'GET' }
+
+    it { is_expected.to be_an_instance_of(String) }
     it { is_expected.not_to be_empty }
   end
 end

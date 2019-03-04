@@ -33,54 +33,60 @@ module ActiveStorage
           ).call)
         end
 
-        def get_object(path)
+        def get_object(key)
           https_client.request(
             prepare_request do
-              GetObject.new(uri: absolute_uri(path)).request
+              GetObject.new(uri: absolute_uri(key)).request
             end
           )
         end
 
-        def put_object(file, path, checksum: nil)
+        def put_object(key, file, checksum: nil)
           https_client.request(
             prepare_request do
               PutObject.new(
                 file: file,
-                uri: absolute_uri(path),
+                uri: absolute_uri(key),
                 checksum: checksum
               ).request
             end
           )
         end
 
-        def delete_object(path)
+        def delete_object(key)
           https_client.request(
             prepare_request do
-              DeleteObject.new(uri: absolute_uri(path)).request
+              DeleteObject.new(uri: absolute_uri(key)).request
             end
           )
         end
 
-        def show_object_metadata(path)
+        def show_object_metadata(key)
           https_client.request(
             prepare_request do
-              ShowObjectMetadata.new(uri: absolute_uri(path)).request
+              ShowObjectMetadata.new(uri: absolute_uri(key)).request
             end
           )
         end
 
-        def list_objects(path, options = {})
+        def list_objects(key, **options)
           https_client.request(
             prepare_request do
-              ListObjects.new(uri: absolute_uri(path), options: options).request
+              ListObjects.new(uri: absolute_uri(key), options: options).request
             end
           )
         end
 
-        def create_temporary_url(path, method, **options)
-          CreateTemporaryURL.new(
-            uri: absolute_uri(path), method: method, options: options
+        def create_temporary_uri(key, http_method, **options)
+          CreateTemporaryURI.new(
+            uri: absolute_uri(key),
+            http_method: http_method,
+            options: options
           ).generate
+        end
+
+        def temporary_url(key, http_method, **options)
+          create_temporary_uri(key, http_method, options).to_s
         end
 
         private
@@ -95,8 +101,8 @@ module ActiveStorage
           end
         end
 
-        def absolute_uri(path)
-          URI(uri.to_s + path)
+        def absolute_uri(key)
+          URI(uri.to_s + key)
         end
       end
     end

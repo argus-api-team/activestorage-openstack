@@ -8,18 +8,18 @@ module ActiveStorage
       class Storage
         # Create a tempory URL according to OpenStack specification.
         # More details here: https://docs.openstack.org/swift/latest/api/temporary_url_middleware.html
-        class CreateTemporaryURL
-          attr_reader :uri, :method, :options
+        class CreateTemporaryURI
+          attr_reader :uri, :http_method, :options
 
-          def initialize(uri:, method:, options: {})
+          def initialize(uri:, http_method:, options: {})
             @uri = uri
-            @method = method
+            @http_method = http_method
             @options = options
           end
 
           def generate
             add_params
-            uri.to_s
+            uri
           end
 
           private
@@ -63,13 +63,13 @@ module ActiveStorage
 
           def hmac_body
             <<~TXT.strip
-              #{method}
+              #{http_method}
               #{expires_in}
               #{uri.path}
             TXT
           end
         end
-        private_constant :CreateTemporaryURL
+        private_constant :CreateTemporaryURI
       end
     end
   end
