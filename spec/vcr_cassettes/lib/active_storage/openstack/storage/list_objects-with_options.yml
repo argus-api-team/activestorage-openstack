@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/?limit=1&prefix=fixtures
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?limit=1&prefix=fixtures
     body:
       encoding: US-ASCII
       string: ''

@@ -64,7 +64,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     subject(:get_object) { storage.get_object(key) }
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
 
     it 'returns Success code' do
       expect(Integer(get_object.code)).to equal(200) # Success
@@ -77,7 +77,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     end
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
     let(:file) { file_fixture("images/#{filename}") }
     let(:checksum) { Digest::MD5.file(file).hexdigest }
 
@@ -104,7 +104,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     subject(:delete_object) { storage.delete_object(key) }
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
 
     it 'returns No Content code' do
       expect(Integer(delete_object.code)).to equal(204) # No content
@@ -119,7 +119,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     end
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
 
     it 'returns Success code' do
       expect(Integer(show_object_metadata.code)).to equal(200) # Success
@@ -128,7 +128,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     context 'when file does not exist', vcr: {
       cassette_name: "#{cassette_path}/show_object_metadata-not_found"
     } do
-      let(:key) { '/unknown_file.jpg' }
+      let(:key) { 'unknown_file.jpg' }
 
       it 'returns Not found code' do
         expect(Integer(show_object_metadata.code)).to equal(404) # Not found
@@ -140,10 +140,9 @@ describe ActiveStorage::Openstack::Client::Storage do
     cassette_name: "#{cassette_path}/list_objects"
   } do
     subject(:list_objects) do
-      storage.list_objects(path, options)
+      storage.list_objects(options)
     end
 
-    let(:path) { '/' }
     let(:options) { {} }
 
     it 'returns Success code' do
@@ -172,7 +171,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     end
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
     let(:http_method) { 'GET' }
 
     it { is_expected.to be_an_instance_of(URI::HTTPS) }
@@ -184,7 +183,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     end
 
     let(:filename) { 'test.jpg' }
-    let(:key) { "/fixtures/files/images/#{filename}" }
+    let(:key) { "fixtures/files/images/#{filename}" }
     let(:http_method) { 'GET' }
 
     it { is_expected.to be_an_instance_of(String) }

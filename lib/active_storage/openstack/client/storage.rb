@@ -69,10 +69,10 @@ module ActiveStorage
           )
         end
 
-        def list_objects(key, **options)
+        def list_objects(**options)
           https_client.request(
             prepare_request do
-              ListObjects.new(uri: absolute_uri(key), options: options).request
+              ListObjects.new(uri: uri, options: options).request
             end
           )
         end
@@ -102,7 +102,7 @@ module ActiveStorage
         end
 
         def absolute_uri(key)
-          URI(uri.to_s + key)
+          URI("#{uri}/#{key}")
         end
       end
     end
