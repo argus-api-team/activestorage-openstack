@@ -27,7 +27,7 @@ group :test do
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  gem 'simplecov'
+  gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
 end

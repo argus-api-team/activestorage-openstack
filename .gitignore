@@ -13,3 +13,4 @@ spec/dummy/tmp/
 spec/dummy/config/master.key
 .byebug_history
 tmp/
+coverage

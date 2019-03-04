@@ -29,7 +29,7 @@ module ActiveStorage
               temp_url_sig: signature,
               temp_url_expires: expires_in,
               filename: filename,
-              "#{disposition}" => nil
+              disposition => nil
             )
           end
 
