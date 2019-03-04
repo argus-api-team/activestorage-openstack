@@ -165,4 +165,18 @@ describe ActiveStorage::Openstack::Client::Storage do
       end
     end
   end
+
+  describe '#create_temporary_url', vcr: {
+    cassette_name: "#{cassette_path}/create_temporary_url"
+  } do
+    subject(:create_temporary_url) do
+      storage.create_temporary_url(object_path, request_method)
+    end
+
+    let(:filename) { 'test.jpg' }
+    let(:object_path) { "/fixtures/files/images/#{filename}" }
+    let(:request_method) { 'GET' }
+
+    it { is_expected.not_to be_empty }
+  end
 end

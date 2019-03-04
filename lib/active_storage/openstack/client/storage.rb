@@ -77,6 +77,12 @@ module ActiveStorage
           )
         end
 
+        def create_temporary_url(path, method, **options)
+          CreateTemporaryURL.new(
+            uri: absolute_uri(path), method: method, options: options
+          ).generate
+        end
+
         private
 
         def prepare_request

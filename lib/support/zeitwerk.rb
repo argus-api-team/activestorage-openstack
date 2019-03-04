@@ -11,6 +11,8 @@ class CustomInflector < Zeitwerk::Inflector
       'HTTPSClient'
     when 'object_store_url'
       'ObjectStoreURL'
+    when 'create_temporary_url'
+      'CreateTemporaryURL'
     else
       super
     end
