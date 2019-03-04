@@ -14,7 +14,7 @@ Metrics/BlockLength:
     - aasm
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   DisplayCopNames: true
   Exclude:
     - spec/dummy/**/*
