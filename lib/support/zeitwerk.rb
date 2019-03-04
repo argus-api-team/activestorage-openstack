@@ -4,7 +4,7 @@ require 'zeitwerk'
 
 # Inflector for Zeitwerk
 class CustomInflector < Zeitwerk::Inflector
-  # :reek:ControlParameter
+  # :reek:ControlParameter imposed by Zeitwerk gem
   def camelize(basename, _abspath)
     case basename
     when 'https_client'
@@ -16,3 +16,9 @@ class CustomInflector < Zeitwerk::Inflector
     end
   end
 end
+
+loader = Zeitwerk::Loader.new
+loader.push_dir(GEM_ROOT)
+loader.inflector = CustomInflector.new
+loader.ignore("#{GEM_ROOT}/activestorage_openstack.rb")
+loader.setup
