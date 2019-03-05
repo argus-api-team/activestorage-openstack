@@ -62,11 +62,7 @@ module ActiveStorage
           end
 
           def hmac_body
-            <<~TXT.strip
-              #{http_method}
-              #{expires_in}
-              #{uri.path}
-            TXT
+            [http_method, expires_in, uri.path].join("\n")
           end
         end
         private_constant :CreateTemporaryURI
