@@ -73,13 +73,13 @@ describe ActiveStorage::Openstack::Client::Storage do
 
   describe '#put_object' do
     subject(:put_object) do
-      storage.put_object(key, file, checksum: checksum)
+      storage.put_object(key, file.open, checksum: checksum)
     end
 
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
     let(:file) { file_fixture("images/#{filename}") }
-    let(:checksum) { Digest::MD5.file(file).hexdigest }
+    let(:checksum) { Digest::MD5.file(file).base64digest }
 
     it 'returns Created code', vcr: {
       cassette_name: "#{cassette_path}/put_object"
@@ -90,7 +90,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     context 'when checksum fails', vcr: {
       cassette_name: "#{cassette_path}/put_object-bad_checksum"
     } do
-      let(:checksum) { 'bad_checksum' }
+      let(:checksum) { Digest::MD5.base64digest('bad_checksum') }
 
       it 'returns Unprocessable Entity code' do
         expect(Integer(put_object.code)).to equal(422) # Unprocessable Entity

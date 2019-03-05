@@ -34,7 +34,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
     'README.md'
   ]
 
-  spec.add_dependency 'mimemagic'
+  spec.add_dependency 'marcel'
   spec.add_dependency 'rails', '~> 5.2.2'
   spec.add_dependency 'tzinfo-data'
   spec.add_dependency 'zeitwerk'

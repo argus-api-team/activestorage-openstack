@@ -31,17 +31,25 @@ module ActiveStorage
           private
 
           def content_type
-            MimeMagic.by_magic(binary_file)
+            Marcel::MimeType.for file,
+                                 name: file.try(:original_filename),
+                                 declared_type: file.try(:content_type)
           end
 
           def md5_checksum
-            return checksum if checksum.present?
+            return checksum_to_hexdigest if checksum.present?
 
             Digest::MD5.file(file).hexdigest
           end
 
           def binary_file
             IO.binread(file)
+          end
+
+          # ActiveStorage sends a `Digest::MD5.base64digest` checksum
+          # OpenStack expects a `Digest::MD5.hexdigest` ETag
+          def checksum_to_hexdigest
+            checksum.unpack1('m0').unpack1('H*')
           end
         end
         private_constant :PutObject

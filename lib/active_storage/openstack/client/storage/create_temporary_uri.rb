@@ -39,8 +39,8 @@ module ActiveStorage
 
           def expires_in
             @expires_in ||= options.fetch(:expires_in) do
-              15.minutes.from_now.to_i
-            end
+              15.minutes
+            end.from_now.to_i
           end
 
           def filename

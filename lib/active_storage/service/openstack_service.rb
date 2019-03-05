@@ -15,13 +15,17 @@ module ActiveStorage
                                   region: region
       end
 
+      # :reek:LongParameterList
       def upload(key, io, checksum: nil, **_options)
         instrument :upload, key: key, checksum: checksum do
           storage.put_object(key, io, checksum: checksum)
         end
       end
 
-      def url(key, expires_in:, disposition:, filename:, _content_type:)
+      # :reek:LongParameterList
+      # :reek:UnusedParameters:
+      # rubocop:disable Lint/UnusedMethodArgument
+      def url(key, expires_in:, disposition:, filename:, content_type:)
         instrument :url, key: key do |payload|
           payload[:url] = storage.temporary_url(
             key,
@@ -31,6 +35,13 @@ module ActiveStorage
             filename: filename
           )
           payload.fetch(:url)
+        end
+      end
+      # rubocop:enable Lint/UnusedMethodArgument
+
+      def download(key)
+        instrument :download, key: key do
+          storage.get_object(key)
         end
       end
     end

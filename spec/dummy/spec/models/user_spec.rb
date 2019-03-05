@@ -8,12 +8,10 @@ RSpec.describe User do
 
     context 'when attaching file' do
       let(:filename) { 'test.jpg' }
-      let(:key) { "/fixtures/files/images/#{filename}" }
-      let(:file) { file_fixture("images/#{filename}") }
-      let(:checksum) { Digest::MD5.file(file).hexdigest }
+      let(:io) { File.open(file_fixture("images/#{filename}")) }
 
       it 'should be attached' do
-        avatar.attach(io: file, filename: filename)
+        avatar.attach(io: io, filename: filename)
 
         expect(avatar).to be_attached
       end

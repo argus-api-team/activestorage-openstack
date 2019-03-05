@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     activestorage-openstack (0.1.0)
-      mimemagic
+      marcel
       rails (~> 5.2.2)
       tzinfo-data
       zeitwerk
