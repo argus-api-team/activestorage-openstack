@@ -33,10 +33,20 @@ module ActiveStorage
           ).call)
         end
 
-        def get_object(key)
+        def get_object(key, **options)
           https_client.request(
             prepare_request do
-              GetObject.new(uri: absolute_uri(key)).request
+              GetObject.new(uri: absolute_uri(key), options: options).request
+            end
+          )
+        end
+
+        def get_object_by_range(key, range, **options)
+          https_client.request(
+            prepare_request do
+              GetObjectByRange.new(
+                uri: absolute_uri(key), range: range, options: options
+              ).request
             end
           )
         end

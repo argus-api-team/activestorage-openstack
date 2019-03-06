@@ -38,6 +38,7 @@ module ActiveStorage
         end
       end
 
+      # :reek:LongParameterList
       def url_for_direct_upload(key, expires_in:, filename:, **_options)
         instrument :url, key: key do |payload|
           payload[:url] = storage.temporary_url(
@@ -72,6 +73,12 @@ module ActiveStorage
           end
 
           storage.bulk_delete_objects(keys)
+        end
+      end
+
+      def download_chunk(key, range)
+        instrument :download_chunk, key: key, range: range do
+          storage.get_object_by_range(key, range)
         end
       end
 

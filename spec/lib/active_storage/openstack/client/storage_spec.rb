@@ -59,12 +59,25 @@ describe ActiveStorage::Openstack::Client::Storage do
   describe '#get_object', vcr: {
     cassette_name: "#{cassette_path}/get_object"
   } do
-    subject(:get_object) { storage.get_object(key) }
+    subject(:get_object) { storage.get_object(key, options) }
 
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
+    let(:options) { {} }
 
     it { is_expected.to be_an_instance_of(Net::HTTPOK) }
+  end
+
+  describe '#get_object_by_range', vcr: {
+    cassette_name: "#{cassette_path}/get_object_by_range"
+  } do
+    subject(:get_object_by_range) { storage.get_object_by_range(key, range) }
+
+    let(:filename) { 'test.jpg' }
+    let(:key) { "fixtures/files/images/#{filename}" }
+    let(:range) { (1..10) }
+
+    it { is_expected.to be_an_instance_of(Net::HTTPPartialContent) }
   end
 
   describe '#put_object' do

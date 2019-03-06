@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Range:
+      - bytes=1-10
+      X-Auth-Token:
+      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
+  response:
+    status:
+      code: 206
+      message: Partial Content
+    headers:
+      Content-Length:
+      - '10'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Wed, 06 Mar 2019 12:46:03 GMT
+      Content-Range:
+      - bytes 1-10/367
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1551876362.48419'
+      Content-Type:
+      - image/jpeg
+      X-Object-Meta-Orig-Filename:
+      - test.jpg
+      X-Trans-Id:
+      - tx40a9837065864ff8b8eeb-005c7fc92c
+      X-Openstack-Request-Id:
+      - tx40a9837065864ff8b8eeb-005c7fc92c
+      Date:
+      - Wed, 06 Mar 2019 13:20:44 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        2P/gABBKRklGAA==
+    http_version: 
+  recorded_at: Wed, 06 Mar 2019 13:20:44 GMT
+recorded_with: VCR 4.0.0

@@ -8,10 +8,11 @@ module ActiveStorage
       class Storage
         # Downloads the object at the specified URI.
         class GetObject
-          attr_reader :uri
+          attr_reader :uri, :options
 
-          def initialize(uri:)
+          def initialize(uri:, options: {})
             @uri = uri
+            @options = options
           end
 
           def request
