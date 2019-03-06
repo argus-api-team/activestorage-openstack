@@ -6,8 +6,7 @@ module ActiveStorage
     class Client
       # :reek:IrresponsibleModule
       class Storage
-        # Extracts the object store URL from cached payload mathing the
-        # specified region.
+        # Deletes object at the specified URI.
         class DeleteObject
           attr_reader :uri
 

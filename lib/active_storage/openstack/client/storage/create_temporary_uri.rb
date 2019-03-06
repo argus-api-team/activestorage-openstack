@@ -44,7 +44,7 @@ module ActiveStorage
           end
 
           def filename
-            File.basename(uri.path)
+            options.fetch(:filename) { File.basename(uri.path) }
           end
 
           def disposition

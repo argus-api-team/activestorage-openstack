@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?bulk-delete
+    body:
+      encoding: UTF-8
+      string: |-
+        /test-assets-api/fixtures/files/images/test.jpg
+        /test-assets-api/fixtures/files/images/test.png
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Content-Type:
+      - text/plain
+      X-Auth-Token:
+      - gAAAAABcfl8tekB7EgRTrhcYhh7VFZeqd805-Fg_UjEIhmgbrXvmnsQCUiWQvlPSV-dFiRU3gpYr57bmKdarRmSoWa8f8DokTQAsK8UUtOGPpqggIC52tWxheyWjmsP9JrAEEaPN7YJ-hHZPaNoRgy5SrTuZKIzRF8zo320nhfy8E_7X8Ljef5E
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      X-Trans-Id:
+      - tx8df6c03d5ad94b8591cfd-005c7f8321
+      X-Openstack-Request-Id:
+      - tx8df6c03d5ad94b8591cfd-005c7f8321
+      Date:
+      - Wed, 06 Mar 2019 08:21:54 GMT
+      Transfer-Encoding:
+      - chunked
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: '{"Number Not Found": 0, "Response Status": "200 OK", "Errors": [],
+        "Number Deleted": 2, "Response Body": ""}'
+    http_version: 
+  recorded_at: Wed, 06 Mar 2019 08:21:54 GMT
+recorded_with: VCR 4.0.0

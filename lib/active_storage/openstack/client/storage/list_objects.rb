@@ -6,8 +6,9 @@ module ActiveStorage
     class Client
       # :reek:IrresponsibleModule
       class Storage
-        # Extracts the object store URL from cached payload mathing the
-        # specified region.
+        # List objects at the specified URI.
+        # Generally a container is specified.
+        # The `prefix=` url variable filters the list retrieved.
         class ListObjects
           attr_reader :uri, :options
 

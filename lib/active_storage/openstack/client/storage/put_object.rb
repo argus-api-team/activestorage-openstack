@@ -9,13 +9,13 @@ module ActiveStorage
     class Client
       # :reek:IrresponsibleModule
       class Storage
-        # Extracts the object store URL from cached payload mathing the
-        # specified region.
+        # Uploads a file to the Object Store.
+        # Checksum is validated after upload.
         class PutObject
-          attr_reader :checksum, :file, :uri
+          attr_reader :checksum, :io, :uri
 
-          def initialize(file:, uri:, checksum: nil)
-            @file = file
+          def initialize(io:, uri:, checksum: nil)
+            @io = io
             @uri = uri
             @checksum = checksum
           end
@@ -24,26 +24,22 @@ module ActiveStorage
             Net::HTTP::Put.new(uri).tap do |request|
               request.add_field('Content-Type', content_type)
               request.add_field('ETag', md5_checksum)
-              request.body = binary_file
+              request.body = io.read
             end
           end
 
           private
 
           def content_type
-            Marcel::MimeType.for file,
-                                 name: file.try(:original_filename),
-                                 declared_type: file.try(:content_type)
+            Marcel::MimeType.for io,
+                                 name: io.try(:original_filename),
+                                 declared_type: io.try(:content_type)
           end
 
           def md5_checksum
             return checksum_to_hexdigest if checksum.present?
 
-            Digest::MD5.file(file).hexdigest
-          end
-
-          def binary_file
-            IO.binread(file)
+            Digest::MD5.file(io).hexdigest
           end
 
           # ActiveStorage sends a `Digest::MD5.base64digest` checksum

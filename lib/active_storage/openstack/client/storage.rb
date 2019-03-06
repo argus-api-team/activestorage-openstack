@@ -41,11 +41,11 @@ module ActiveStorage
           )
         end
 
-        def put_object(key, file, checksum: nil)
+        def put_object(key, io, checksum: nil)
           https_client.request(
             prepare_request do
               PutObject.new(
-                file: file,
+                io: io,
                 uri: absolute_uri(key),
                 checksum: checksum
               ).request
@@ -87,6 +87,14 @@ module ActiveStorage
 
         def temporary_url(key, http_method, **options)
           create_temporary_uri(key, http_method, options).to_s
+        end
+
+        def bulk_delete_objects(key_collection)
+          https_client.request(
+            prepare_request do
+              BulkDeleteObjects.new(uri: uri, keys: key_collection).request
+            end
+          )
         end
 
         private

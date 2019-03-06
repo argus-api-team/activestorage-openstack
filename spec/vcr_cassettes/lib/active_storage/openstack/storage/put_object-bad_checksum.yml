@@ -20,26 +20,26 @@ http_interactions:
       Content-Type:
       - image/jpeg
       Etag:
-      - bad_checksum
+      - 49e5c4625b90d9210e28265bdeb6d3a5
       X-Auth-Token:
-      - gAAAAABceBdSblSqvWum-jta1WUc-M0L4crDZIAbHm_GqvC_HG8E7X0Dr7mbWxs12-AJGhBYp9XlicjwGodCDPhp_NKodEm7O5QvnOqYuhrQvNLLO3SKCrlAoFmgQcLvqQp81uQkTzuSNtBnMobQJyj-wWeTx3R-Ku4x5TyYI3Sx01FEeSVcI4M
+      - gAAAAABcfl8tekB7EgRTrhcYhh7VFZeqd805-Fg_UjEIhmgbrXvmnsQCUiWQvlPSV-dFiRU3gpYr57bmKdarRmSoWa8f8DokTQAsK8UUtOGPpqggIC52tWxheyWjmsP9JrAEEaPN7YJ-hHZPaNoRgy5SrTuZKIzRF8zo320nhfy8E_7X8Ljef5E
   response:
     status:
       code: 422
       message: Unprocessable Entity
     headers:
       Last-Modified:
-      - Thu, 28 Feb 2019 17:48:01 GMT
+      - Tue, 05 Mar 2019 14:56:33 GMT
       Content-Length:
       - '93'
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - tx0eaf4fd08645479d889ec-005c781ed0
+      - tx217dd7b9a2354ca7a3931-005c7e8e20
       X-Openstack-Request-Id:
-      - tx0eaf4fd08645479d889ec-005c781ed0
+      - tx217dd7b9a2354ca7a3931-005c7e8e20
       Date:
-      - Thu, 28 Feb 2019 17:48:00 GMT
+      - Tue, 05 Mar 2019 14:56:32 GMT
       X-Iplb-Instance:
       - '12308'
     body:
@@ -47,5 +47,5 @@ http_interactions:
       string: "<html><h1>Unprocessable Entity</h1><p>Unable to process the contained
         instructions</p></html>"
     http_version: 
-  recorded_at: Thu, 28 Feb 2019 17:48:00 GMT
+  recorded_at: Tue, 05 Mar 2019 14:56:32 GMT
 recorded_with: VCR 4.0.0

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'digest'
-require "#{APP_ROOT}/lib/active_storage/openstack/client"
-require "#{APP_ROOT}/lib/active_storage/openstack/client/storage"
 
 describe ActiveStorage::Openstack::Client::Storage do
   cassette_path = 'lib/active_storage/openstack/storage'
@@ -66,25 +64,24 @@ describe ActiveStorage::Openstack::Client::Storage do
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
 
-    it 'returns Success code' do
-      expect(Integer(get_object.code)).to equal(200) # Success
-    end
+    it { is_expected.to be_an_instance_of(Net::HTTPOK) }
   end
 
   describe '#put_object' do
     subject(:put_object) do
-      storage.put_object(key, file.open, checksum: checksum)
+      storage.put_object(key, io, checksum: checksum)
     end
 
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
     let(:file) { file_fixture("images/#{filename}") }
+    let(:io) { file.open }
     let(:checksum) { Digest::MD5.file(file).base64digest }
 
     it 'returns Created code', vcr: {
       cassette_name: "#{cassette_path}/put_object"
     } do
-      expect(Integer(put_object.code)).to equal(201) # Created
+      expect(put_object).to be_an_instance_of(Net::HTTPCreated)
     end
 
     context 'when checksum fails', vcr: {
@@ -92,9 +89,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     } do
       let(:checksum) { Digest::MD5.base64digest('bad_checksum') }
 
-      it 'returns Unprocessable Entity code' do
-        expect(Integer(put_object.code)).to equal(422) # Unprocessable Entity
-      end
+      it { is_expected.to be_an_instance_of(Net::HTTPUnprocessableEntity) }
     end
   end
 
@@ -106,9 +101,7 @@ describe ActiveStorage::Openstack::Client::Storage do
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
 
-    it 'returns No Content code' do
-      expect(Integer(delete_object.code)).to equal(204) # No content
-    end
+    it { is_expected.to be_an_instance_of(Net::HTTPNoContent) }
   end
 
   describe '#show_object_metadata', vcr: {
@@ -121,18 +114,14 @@ describe ActiveStorage::Openstack::Client::Storage do
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
 
-    it 'returns Success code' do
-      expect(Integer(show_object_metadata.code)).to equal(200) # Success
-    end
+    it { is_expected.to be_an_instance_of(Net::HTTPOK) }
 
     context 'when file does not exist', vcr: {
       cassette_name: "#{cassette_path}/show_object_metadata-not_found"
     } do
       let(:key) { 'unknown_file.jpg' }
 
-      it 'returns Not found code' do
-        expect(Integer(show_object_metadata.code)).to equal(404) # Not found
-      end
+      it { is_expected.to be_an_instance_of(Net::HTTPNotFound) }
     end
   end
 
@@ -145,9 +134,7 @@ describe ActiveStorage::Openstack::Client::Storage do
 
     let(:options) { {} }
 
-    it 'returns Success code' do
-      expect(Integer(list_objects.code)).to equal(200) # Success
-    end
+    it { is_expected.to be_an_instance_of(Net::HTTPOK) }
 
     context 'with options', vcr: {
       cassette_name: "#{cassette_path}/list_objects-with_options"
@@ -159,9 +146,7 @@ describe ActiveStorage::Openstack::Client::Storage do
         }
       end
 
-      it 'returns Success code' do
-        expect(Integer(list_objects.code)).to equal(200) # Success
-      end
+      it { is_expected.to be_an_instance_of(Net::HTTPOK) }
     end
   end
 
@@ -179,7 +164,7 @@ describe ActiveStorage::Openstack::Client::Storage do
 
   describe '#temporary_url' do
     subject(:temporary_url) do
-      storage.temporary_url(key, http_method)
+      storage.temporary_url(key, http_method, filename: filename)
     end
 
     let(:filename) { 'test.jpg' }
@@ -187,6 +172,28 @@ describe ActiveStorage::Openstack::Client::Storage do
     let(:http_method) { 'GET' }
 
     it { is_expected.to be_an_instance_of(String) }
-    it { is_expected.not_to be_empty }
+    it { is_expected.to include('temp_url_sig=') }
+    it { is_expected.to match(/temp_url_expires=(?<timestamp>\d{10,})/) }
+    it { is_expected.to include("filename=#{filename}") }
+  end
+
+  describe '#bulk_delete_objects', vcr: {
+    cassette_name: "#{cassette_path}/bulk_delete_objects"
+  } do
+    subject(:bulk_delete_objects) { storage.bulk_delete_objects(keys) }
+
+    let(:keys) do
+      %W[
+        /#{container}/fixtures/files/images/test.jpg
+        /#{container}/fixtures/files/images/test.png
+      ]
+    end
+
+    it { is_expected.to be_an_instance_of(Net::HTTPOK) }
+    it 'deletes all keys' do
+      body_as_json = JSON.parse(bulk_delete_objects.body)
+
+      expect(body_as_json.fetch('Number Deleted')).to eql(keys.size)
+    end
   end
 end

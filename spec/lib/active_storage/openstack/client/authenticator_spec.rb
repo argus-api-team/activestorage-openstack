@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "#{APP_ROOT}/lib/active_storage/openstack/client/authenticator"
-
 describe ActiveStorage::Openstack::Client::Authenticator do
   cassettes_path = 'lib/active_storage/openstack/authenticator'
 

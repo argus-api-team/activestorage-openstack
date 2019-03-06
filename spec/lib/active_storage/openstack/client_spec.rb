@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "#{APP_ROOT}/lib/active_storage/openstack/client"
-
 describe ActiveStorage::Openstack::Client do
   subject(:client) do
     described_class.new username: username,
