@@ -18,15 +18,11 @@ module ActiveStorage
 
           def request
             super.tap do |request|
-              request.add_field('Range', byte_range) if range?
+              request.add_field('Range', byte_range)
             end
           end
 
           private
-
-          def range?
-            range.present?
-          end
 
           def byte_range
             "bytes=#{first_byte}-#{last_byte}"
