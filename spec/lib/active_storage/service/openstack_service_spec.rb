@@ -9,22 +9,26 @@ describe ActiveStorage::Service::OpenstackService do
       openstack: {
         service: 'Openstack',
         container: Rails.application.config.x.openstack.fetch(:container),
-        authentication_url: Rails.application.config.x.openstack.fetch(:authentication_url),
+        authentication_url: Rails.application.config.x.openstack
+                                 .fetch(:authentication_url),
         region: Rails.application.config.x.openstack.fetch(:region),
         credentials: {
           username: Rails.application.credentials.openstack.fetch(:username),
           api_key: Rails.application.credentials.openstack.fetch(:api_key),
-          temporary_url_key: Rails.application.credentials.openstack.fetch(:temporary_url_key)
+          temporary_url_key: Rails.application.credentials.openstack
+                                  .fetch(:temporary_url_key)
         }
       }
     }
   end
 
   describe '.configure' do
-    subject(:configure) { described_class.configure(service_name, configurations) }
+    subject(:configure) do
+      described_class.configure(service_name, configurations)
+    end
 
     it do
-      is_expected.to be_an_instance_of(described_class)
+      expect(configure).to be_an_instance_of(described_class)
     end
   end
 
@@ -42,7 +46,7 @@ describe ActiveStorage::Service::OpenstackService do
     end
 
     it do
-      is_expected.to be_an_instance_of(described_class)
+      expect(build).to be_an_instance_of(described_class)
     end
   end
 end

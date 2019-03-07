@@ -3,4 +3,3 @@
 GEM_ROOT = __dir__
 
 require_relative 'support/zeitwerk'
-

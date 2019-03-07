@@ -34,7 +34,7 @@ describe ActiveStorage::Service::Configurator do
       end
 
       it do
-        is_expected.to be_an_instance_of(
+        expect(build).to be_an_instance_of(
           ActiveStorage::Service::OpenstackService
         )
       end
@@ -58,7 +58,7 @@ describe ActiveStorage::Service::Configurator do
       end
 
       it do
-        is_expected.to be_an_instance_of(
+        expect(build).to be_an_instance_of(
           ActiveStorage::Service::OpenstackService
         )
       end
