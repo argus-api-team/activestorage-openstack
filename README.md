@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/a08568681cd912402ca5/maintainability)](https://codeclimate.com/github/mickael-palma-argus/activestorage-openstack/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/a08568681cd912402ca5/test_coverage)](https://codeclimate.com/github/mickael-palma-argus/activestorage-openstack/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/75b77a2b9d9b42496264/maintainability)](https://codeclimate.com/github/argus-api-team/activestorage-openstack/maintainability)[![Test Coverage](https://api.codeclimate.com/v1/badges/75b77a2b9d9b42496264/test_coverage)](https://codeclimate.com/github/argus-api-team/activestorage-openstack/test_coverage)
 
 # Activestorage::Openstack
 Short description and motivation.
