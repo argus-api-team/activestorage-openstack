@@ -35,7 +35,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   ]
 
   spec.add_dependency 'marcel'
-  spec.add_dependency 'rails', '~> 5.2.2'
+  spec.add_dependency 'rails', '~> 6.0.0.beta2'
   spec.add_dependency 'tzinfo-data'
   spec.add_dependency 'zeitwerk'
 
