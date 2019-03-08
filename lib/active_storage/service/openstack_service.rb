@@ -52,9 +52,15 @@ module ActiveStorage
       end
       # rubocop:enable Lint/UnusedMethodArgument
 
-      def download(key)
-        instrument :download, key: key do
-          storage.get_object(key)
+      def download(key, &block)
+        if block_given?
+          instrument :streaming_download, key: key do
+            stream(key, &block)
+          end
+        else
+          instrument :download, key: key do
+            storage.get_object(key)
+          end
         end
       end
 
@@ -86,6 +92,23 @@ module ActiveStorage
         instrument :exist, key: key do |payload|
           payload[:exist] = storage.show_object_metadata(key).is_a?(Net::HTTPOK)
           payload.fetch(:exist)
+        end
+      end
+
+      private
+
+      # Reads the file for the given key in chunks, yielding each to the block.
+      def stream(key, chunk_size: 5.megabytes)
+        blob = storage.show_object_metadata(key)
+        offset = 0
+
+        raise ActiveStorage::FileNotFoundError unless blob.present?
+
+        while offset < Integer(blob.fetch('Content-Length'))
+          yield storage.get_object_by_range(
+            key, offset..(offset + chunk_size - 1)
+          ).body
+          offset += chunk_size
         end
       end
     end

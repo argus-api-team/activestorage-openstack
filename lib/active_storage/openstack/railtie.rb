@@ -3,7 +3,7 @@
 module ActiveStorage
   module Openstack
     # Defines Railtie behaviour.
-    class Railtie < ::Rails::Railtie
+    class Railtie < Rails::Railtie
     end
   end
 end

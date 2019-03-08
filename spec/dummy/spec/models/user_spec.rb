@@ -1,17 +1,27 @@
+# frozen_string_literal: true
+
 RSpec.describe User do
+  include ActiveJob::TestHelper
+
   subject(:user) { described_class.new }
 
-  xdescribe '#avatar' do
+  xdescribe '#avatar', vcr: {
+    cassette_name: 'dummy/user-avatar'
+  } do
     subject(:avatar) { user.avatar }
+
+    let(:user) { User.create }
 
     it { is_expected.not_to be_attached }
 
     context 'when attaching file' do
       let(:filename) { 'test.jpg' }
-      let(:io) { File.open(file_fixture("images/#{filename}")) }
+      let(:io) { file_fixture("images/#{filename}").open }
 
       it 'should be attached' do
-        avatar.attach(io: io, filename: filename)
+        perform_enqueued_jobs do
+          avatar.attach(io: io, filename: filename)
+        end
 
         expect(avatar).to be_attached
       end
