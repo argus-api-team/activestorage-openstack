@@ -20,7 +20,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install activestorage-openstack
+$ gem install activestorage_openstack
 ```
 
 ## Contributing
