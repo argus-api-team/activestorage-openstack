@@ -10,7 +10,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'activestorage-openstack'
+gem 'activestorage_openstack'
 ```
 
 And then execute:
