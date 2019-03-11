@@ -5,7 +5,16 @@ RSpec.describe User do
 
   subject(:user) { described_class.new }
 
-  xdescribe '#avatar', vcr: {
+  let(:random_key) { 'xtapjjcjiudrlk3tmwyjgpuobabd' }
+
+  before do
+    # Fixed key so VCR cassettes won't grow.
+    allow(ActiveStorage::Blob).to(
+      receive(:generate_unique_secure_token).and_return(random_key)
+    )
+  end
+
+  describe '#avatar', vcr: {
     cassette_name: 'dummy/user-avatar'
   } do
     subject(:avatar) { user.avatar }

@@ -1,393 +1,8 @@
 ---
 http_interactions:
 - request:
-    method: post
-    uri: https://auth.cloud.ovh.net/v3/auth/tokens
-    body:
-      encoding: UTF-8
-      string: '{ "auth": { "identity": { "methods": [ "password" ], "password": {
-        "user": { "name": "<USERNAME>", "domain": { "id": "default" }, "password":
-        "<API_KEY>" } } } } }'
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-      Host:
-      - auth.cloud.ovh.net
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 201
-      message: Created
-    headers:
-      X-Subject-Token:
-      - gAAAAABcgq-ij5yh0FPnOGcuuZYtctZ6IfySps_gCj3z_Lj7em-F8AGxz9s1vRWfVb4xiNKgk5hBiLn8EDV_RdROc38Jv_bO1kjIbr8Q56q8SmxTzFA41nn6bprTloigJrLV74To7E35tfco5BRacZubkqhYJXwvSQmoktODxe9Ol_3T3zQgLsw
-      Vary:
-      - X-Auth-Token
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '30654'
-      X-Openstack-Request-Id:
-      - req-c22f73aa-96f7-4cb9-99a9-209a2397f88e
-      X-Iplb-Instance:
-      - '24498'
-    body:
-      encoding: UTF-8
-      string: '{"token": {"is_domain": false, "methods": ["password"], "roles": [{"id":
-        "942a61c1931e494eb01c73b8cb9f445f", "name": "project_operator"}], "is_admin_project":
-        false, "project": {"domain": {"id": "default", "name": "Default"}, "id": "25064d4764a846de8053b0378aabfebb",
-        "name": "0409099920117805"}, "catalog": [{"endpoints": [{"url": "https://network.compute.uk1.cloud.ovh.net/",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "14582a3f48f240bb855a641d085b48d3"},
-        {"url": "https://network.compute.waw1.cloud.ovh.net/", "interface": "public",
-        "region": "WAW1", "region_id": "WAW1", "id": "1736e066ec40430692670a2bb409d438"},
-        {"url": "https://network.compute.waw1.cloud.ovh.net/", "interface": "admin",
-        "region": "WAW1", "region_id": "WAW1", "id": "183ee921d5c7448ba692345f6befc905"},
-        {"url": "https://network.compute.gra3.cloud.ovh.net/", "interface": "public",
-        "region": "GRA3", "region_id": "GRA3", "id": "1f4c689f8a714c92a54bc97c34e28aef"},
-        {"url": "https://network.compute.bhs3.cloud.ovh.net/", "interface": "internal",
-        "region": "BHS3", "region_id": "BHS3", "id": "24c1bc0fe2f84d4e8810d9efe771e7cc"},
-        {"url": "https://network.compute.bhs3.cloud.ovh.net/", "interface": "admin",
-        "region": "BHS3", "region_id": "BHS3", "id": "26b02d41bef046cf8f4c1ad0b2f81e70"},
-        {"url": "https://network.compute.gra3.cloud.ovh.net/", "interface": "admin",
-        "region": "GRA3", "region_id": "GRA3", "id": "3392962bd889440f9d24f6d5d558a52a"},
-        {"url": "https://network.compute.uk1.cloud.ovh.net/", "interface": "admin",
-        "region": "UK1", "region_id": "UK1", "id": "3f0a0e956fdf4e6bb2f54a20c2a4baad"},
-        {"url": "https://network.compute.de1.cloud.ovh.net/", "interface": "internal",
-        "region": "DE1", "region_id": "DE1", "id": "6826ae22962446319d95f6b31c5be487"},
-        {"url": "https://network.compute.sbg3.cloud.ovh.net/", "interface": "public",
-        "region": "SBG3", "region_id": "SBG3", "id": "685db393cd0d4d3781d4c3fda5b88a96"},
-        {"url": "https://network.compute.waw1.cloud.ovh.net/", "interface": "internal",
-        "region": "WAW1", "region_id": "WAW1", "id": "77346ed591814729862b0225414c620c"},
-        {"url": "https://network.compute.bhs3.cloud.ovh.net/", "interface": "public",
-        "region": "BHS3", "region_id": "BHS3", "id": "89c1127a01fe415aae8a211729f28479"},
-        {"url": "https://network.compute.gra3.cloud.ovh.net/", "interface": "internal",
-        "region": "GRA3", "region_id": "GRA3", "id": "964ed678d5cb4f69a9de709c902e32e7"},
-        {"url": "https://network.compute.uk1.cloud.ovh.net/", "interface": "public",
-        "region": "UK1", "region_id": "UK1", "id": "a1f919e87a984f8895fa6d20a01f4776"},
-        {"url": "https://network.compute.sbg3.cloud.ovh.net/", "interface": "internal",
-        "region": "SBG3", "region_id": "SBG3", "id": "a4840e39586d408f8bd334b88d86e4df"},
-        {"url": "https://network.compute.de1.cloud.ovh.net/", "interface": "public",
-        "region": "DE1", "region_id": "DE1", "id": "c7106a5c768e4030bebc5348a91c5479"},
-        {"url": "https://network.compute.sbg3.cloud.ovh.net/", "interface": "admin",
-        "region": "SBG3", "region_id": "SBG3", "id": "c85ef5c8171148fe9a71a98966e4b368"},
-        {"url": "https://network.compute.de1.cloud.ovh.net/", "interface": "admin",
-        "region": "DE1", "region_id": "DE1", "id": "ebaf7de30b2f401c81a4586ad0447b3a"}],
-        "type": "network", "id": "0be6ed3dce244b8295ff643739a86809", "name": "neutron"},
-        {"endpoints": [{"url": "https://cloudformation.waw1.cloud.ovh.net/v1", "interface":
-        "public", "region": "WAW1", "region_id": "WAW1", "id": "1e2c8272006e4ca886102b779901d3bc"},
-        {"url": "https://cloudformation.gra3.cloud.ovh.net/v1", "interface": "public",
-        "region": "GRA3", "region_id": "GRA3", "id": "261e61b95b874294a9d399da2bcf5024"},
-        {"url": "https://cloudformation.uk1.cloud.ovh.net/v1", "interface": "internal",
-        "region": "UK1", "region_id": "UK1", "id": "4f936f29ff63444db501db071e69fe9b"},
-        {"url": "https://cloudformation.gra3.cloud.ovh.net/v1", "interface": "admin",
-        "region": "GRA3", "region_id": "GRA3", "id": "540abd620d4247848ddc4fb0fcf04cd8"},
-        {"url": "https://cloudformation.de1.cloud.ovh.net/v1", "interface": "public",
-        "region": "DE1", "region_id": "DE1", "id": "5bf6ebe811c94d03b26434c68019e4bb"},
-        {"url": "https://cloudformation.uk1.cloud.ovh.net/v1", "interface": "admin",
-        "region": "UK1", "region_id": "UK1", "id": "61862d2db9514c8aa56131e4fae535e4"},
-        {"url": "https://cloudformation.waw1.cloud.ovh.net/v1", "interface": "internal",
-        "region": "WAW1", "region_id": "WAW1", "id": "705237f11e934046a8c9188033a5cf0b"},
-        {"url": "https://cloudformation.de1.cloud.ovh.net/v1", "interface": "admin",
-        "region": "DE1", "region_id": "DE1", "id": "9f2a843e28124687aa78233890310b3f"},
-        {"url": "https://cloudformation.gra3.cloud.ovh.net/v1", "interface": "internal",
-        "region": "GRA3", "region_id": "GRA3", "id": "a7fb1055fc254d95bd095a560370a576"},
-        {"url": "https://cloudformation.uk1.cloud.ovh.net/v1", "interface": "public",
-        "region": "UK1", "region_id": "UK1", "id": "be2637dc78914e0ea79b75d03d34d134"},
-        {"url": "https://cloudformation.de1.cloud.ovh.net/v1", "interface": "internal",
-        "region": "DE1", "region_id": "DE1", "id": "c518a58526a6419793061606efa23a18"},
-        {"url": "https://cloudformation.waw1.cloud.ovh.net/v1", "interface": "admin",
-        "region": "WAW1", "region_id": "WAW1", "id": "cd8a310c92c34941badaa5ae9648e9a9"}],
-        "type": "cloudformation", "id": "12890c0a1d2545dfb8706a7840ad6d8e", "name":
-        "heat-cfn"}, {"endpoints": [{"url": "https://auth.cloud.ovh.net:35357/", "interface":
-        "admin", "region": "SBG3", "region_id": "SBG3", "id": "091f37b1d1a74ce4bea72742ebcb5b33"},
-        {"url": "https://auth.cloud.ovh.net/", "interface": "internal", "region":
-        "WAW1", "region_id": "WAW1", "id": "0d633045a18847068feeee1bda60a683"}, {"url":
-        "https://auth.cloud.ovh.net/", "interface": "public", "region": "GRA3", "region_id":
-        "GRA3", "id": "2d48aaedb0d340aa83238946d656b3ae"}, {"url": "https://auth.cloud.ovh.net/",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "365d0699d93541f68f2e59aca3a32dff"},
-        {"url": "https://auth.cloud.ovh.net/", "interface": "internal", "region":
-        "DE1", "region_id": "DE1", "id": "3d3ccce61f8b4c4a9c9cb45781cf327f"}, {"url":
-        "https://auth.cloud.ovh.net/", "interface": "internal", "region": "BHS3",
-        "region_id": "BHS3", "id": "49df446fd99a4a7986faf411343aca39"}, {"url": "https://auth.cloud.ovh.net/",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "4b59a909855c4991afe2ff215082709c"},
-        {"url": "https://auth.cloud.ovh.net:35357/", "interface": "admin", "region":
-        "DE1", "region_id": "DE1", "id": "4c917e29d5c84f1cb33b028a6117de38"}, {"url":
-        "https://auth.cloud.ovh.net/", "interface": "internal", "region": "GRA3",
-        "region_id": "GRA3", "id": "587993eafd014c669095c4d07a09b4cf"}, {"url": "https://auth.cloud.ovh.net:35357/",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "60cf5a2bfe15429395acd0489228f62d"},
-        {"url": "https://auth.cloud.ovh.net:35357/", "interface": "admin", "region":
-        "UK1", "region_id": "UK1", "id": "6f0a0f827a2a4a45aa79be974cb45136"}, {"url":
-        "https://auth.cloud.ovh.net:35357/", "interface": "admin", "region": "BHS3",
-        "region_id": "BHS3", "id": "7ec72b3cafc64639a6403b5280484169"}, {"url": "https://auth.cloud.ovh.net:35357/",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "87e1708960f64b2487facba2c6b0ced9"},
-        {"url": "https://auth.cloud.ovh.net/", "interface": "public", "region": "DE1",
-        "region_id": "DE1", "id": "a7900ec0c9be4f3eb77498c05046635c"}, {"url": "https://auth.cloud.ovh.net/",
-        "interface": "internal", "region": "SBG3", "region_id": "SBG3", "id": "abdeb84a161f4a898540e235adb0a6d3"},
-        {"url": "https://auth.cloud.ovh.net/", "interface": "public", "region": "SBG3",
-        "region_id": "SBG3", "id": "b76132a65f654182882ca039b4660c16"}, {"url": "https://auth.cloud.ovh.net/",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "be916e977cda43de9618e7467ee8965f"},
-        {"url": "https://auth.cloud.ovh.net/", "interface": "public", "region": "BHS3",
-        "region_id": "BHS3", "id": "c81af3ec2119460c8fe64922b4856e77"}], "type": "identity",
-        "id": "1736f92a0c9541c48d778df7f50b82ce", "name": "keystone"}, {"endpoints":
-        [{"url": "https://compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "0cdd8515aab04536b48eba83d063149e"},
-        {"url": "https://compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "BHS3", "region_id": "BHS3", "id": "13d041e77e1b4074b0cbce0d8a824d37"},
-        {"url": "https://compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "SBG3", "region_id": "SBG3", "id": "249ce50b948f4d8399feed677d34fd3e"},
-        {"url": "https://compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "SBG3", "region_id": "SBG3", "id": "264010e394fd40bda8e2198bda82d04f"},
-        {"url": "https://compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "2d0a54efa03244e4a416054bf92e0f2f"},
-        {"url": "https://compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "WAW1", "region_id": "WAW1", "id": "3960c67e8bf84635883edfeb0414e878"},
-        {"url": "https://compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "DE1", "region_id": "DE1", "id": "4600007ec2a045b3a40529cd34791ffa"},
-        {"url": "https://compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "SBG3", "region_id": "SBG3", "id": "4804f01746c04c26994f9d55290b9428"},
-        {"url": "https://compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "BHS3", "region_id": "BHS3", "id": "4dc5ebfd88bb4f57ae92818d594aa6dd"},
-        {"url": "https://compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "GRA3", "region_id": "GRA3", "id": "5e4cebd91e2946ccb442c92b738653f2"},
-        {"url": "https://compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "985505c1251c4f20b0a23665646b15a1"},
-        {"url": "https://compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "BHS3", "region_id": "BHS3", "id": "a36fda4018804e7aa4296aa48a88a6ce"},
-        {"url": "https://compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "ac71f50c37214b4d940752be3f3dca19"},
-        {"url": "https://compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "UK1", "region_id": "UK1", "id": "b9cd925c6d014390b44a98fe62422de6"},
-        {"url": "https://compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "GRA3", "region_id": "GRA3", "id": "bf6ae5d706dc4bce84501acd4437c6fc"},
-        {"url": "https://compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "DE1", "region_id": "DE1", "id": "eec6521e9b7743d69e70e87f5114749e"},
-        {"url": "https://compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "f44cd8bba9f44162a22d387ec9adfb53"},
-        {"url": "https://compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "DE1", "region_id": "DE1", "id": "fa1367f3cd5b469ba028e26ce9cdd82f"}],
-        "type": "compute", "id": "292dc0f1cc134cb8b363d4a4f74630b4", "name": "nova"},
-        {"endpoints": [{"url": "https://workflow.waw1.cloud.ovh.net/v2", "interface":
-        "admin", "region": "WAW1", "region_id": "WAW1", "id": "063dfe32effa486abe4b271a9572d4c6"},
-        {"url": "https://workflow.sbg3.cloud.ovh.net/v2", "interface": "public", "region":
-        "SBG3", "region_id": "SBG3", "id": "17fb6a24e970452dabc309d4ac08bd0e"}, {"url":
-        "https://workflow.de1.cloud.ovh.net/v2", "interface": "internal", "region":
-        "DE1", "region_id": "DE1", "id": "197a220b53404b96879b0f98af724dd7"}, {"url":
-        "https://workflow.gra3.cloud.ovh.net/v2", "interface": "internal", "region":
-        "GRA3", "region_id": "GRA3", "id": "3d7ae9bc42f641c08873d8ae959789bc"}, {"url":
-        "https://workflow.bhs3.cloud.ovh.net/v2", "interface": "admin", "region":
-        "BHS3", "region_id": "BHS3", "id": "4c4ea77c1e38402dbc48006135867208"}, {"url":
-        "https://workflow.waw1.cloud.ovh.net/v2", "interface": "internal", "region":
-        "WAW1", "region_id": "WAW1", "id": "4fcd95d1239f4830a88c5936669e7b95"}, {"url":
-        "https://workflow.gra3.cloud.ovh.net/v2", "interface": "public", "region":
-        "GRA3", "region_id": "GRA3", "id": "5637c11ad5074c819f68a55ece2345d7"}, {"url":
-        "https://workflow.sbg3.cloud.ovh.net/v2", "interface": "admin", "region":
-        "SBG3", "region_id": "SBG3", "id": "6bb0336c22214d028d3088853f4b0070"}, {"url":
-        "https://workflow.uk1.cloud.ovh.net/v2", "interface": "internal", "region":
-        "UK1", "region_id": "UK1", "id": "6bc970fa74c34f2a9fcd67d289427d0c"}, {"url":
-        "https://workflow.sbg3.cloud.ovh.net/v2", "interface": "internal", "region":
-        "SBG3", "region_id": "SBG3", "id": "7313374d6ead4f7baa1dee7119fbfdd2"}, {"url":
-        "https://workflow.uk1.cloud.ovh.net/v2", "interface": "admin", "region": "UK1",
-        "region_id": "UK1", "id": "764c8322f05b421881904a8ffadcc703"}, {"url": "https://workflow.bhs3.cloud.ovh.net/v2",
-        "interface": "public", "region": "BHS3", "region_id": "BHS3", "id": "78cb40f6a5ad4decb31393e3ea2672a9"},
-        {"url": "https://workflow.waw1.cloud.ovh.net/v2", "interface": "public", "region":
-        "WAW1", "region_id": "WAW1", "id": "960a10c7423e44a28ee72febcfca389d"}, {"url":
-        "https://workflow.de1.cloud.ovh.net/v2", "interface": "public", "region":
-        "DE1", "region_id": "DE1", "id": "ac4af8cb7c92480bbfdb7fe9e21bf782"}, {"url":
-        "https://workflow.de1.cloud.ovh.net/v2", "interface": "admin", "region": "DE1",
-        "region_id": "DE1", "id": "c9298908413147138a53011c2cff9680"}, {"url": "https://workflow.uk1.cloud.ovh.net/v2",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "cfcfc4da63ca47ec869d77c808435c54"},
-        {"url": "https://workflow.bhs3.cloud.ovh.net/v2", "interface": "internal",
-        "region": "BHS3", "region_id": "BHS3", "id": "d36cdf530c0d4838a338f657c5351f60"},
-        {"url": "https://workflow.gra3.cloud.ovh.net/v2", "interface": "admin", "region":
-        "GRA3", "region_id": "GRA3", "id": "e18f2b298ee1475b89bf9bdcf7a82154"}], "type":
-        "workflowv2", "id": "3f096a7197fb4525a9229b703a43b393", "name": "mistral"},
-        {"endpoints": [{"url": "https://image.compute.bhs3.cloud.ovh.net/", "interface":
-        "admin", "region": "BHS3", "region_id": "BHS3", "id": "01253b0c991645a89c0485261b5b72b9"},
-        {"url": "https://image.compute.de1.cloud.ovh.net/", "interface": "public",
-        "region": "DE1", "region_id": "DE1", "id": "0a8c228bc1734884b6fcc090ab83ef37"},
-        {"url": "https://image.compute.sbg3.cloud.ovh.net/", "interface": "internal",
-        "region": "SBG3", "region_id": "SBG3", "id": "17dd0e30b13b4a07831780adfe2544b3"},
-        {"url": "https://image.compute.uk1.cloud.ovh.net/", "interface": "admin",
-        "region": "UK1", "region_id": "UK1", "id": "2ddad5ba306a431bb4940f05bd8754dd"},
-        {"url": "https://image.compute.waw1.cloud.ovh.net/", "interface": "internal",
-        "region": "WAW1", "region_id": "WAW1", "id": "5d0a1886393a4a2ab0cb6d20a477e794"},
-        {"url": "https://image.compute.gra3.cloud.ovh.net/", "interface": "internal",
-        "region": "GRA3", "region_id": "GRA3", "id": "5ed6cdc03ccf434fb1fde62e85decc7e"},
-        {"url": "https://image.compute.uk1.cloud.ovh.net/", "interface": "public",
-        "region": "UK1", "region_id": "UK1", "id": "63d1668e9057476083db0330da7a22cc"},
-        {"url": "https://image.compute.uk1.cloud.ovh.net/", "interface": "internal",
-        "region": "UK1", "region_id": "UK1", "id": "72469022d26d4843a76a25499b7bb373"},
-        {"url": "https://image.compute.gra3.cloud.ovh.net/", "interface": "public",
-        "region": "GRA3", "region_id": "GRA3", "id": "7bac01d2d1c040619f621962b68b679f"},
-        {"url": "https://image.compute.waw1.cloud.ovh.net/", "interface": "admin",
-        "region": "WAW1", "region_id": "WAW1", "id": "aad037e9fd3c4ffd9d748f577b06c31d"},
-        {"url": "https://image.compute.bhs3.cloud.ovh.net/", "interface": "public",
-        "region": "BHS3", "region_id": "BHS3", "id": "abc7bbd125344ee48ba1c71660ae5d78"},
-        {"url": "https://image.compute.gra3.cloud.ovh.net/", "interface": "admin",
-        "region": "GRA3", "region_id": "GRA3", "id": "bf9ed024081941988df904a50c2af1cc"},
-        {"url": "https://image.compute.de1.cloud.ovh.net/", "interface": "admin",
-        "region": "DE1", "region_id": "DE1", "id": "d531c6790381490cbfd2f8c9b8e17cd1"},
-        {"url": "https://image.compute.waw1.cloud.ovh.net/", "interface": "public",
-        "region": "WAW1", "region_id": "WAW1", "id": "dbb869f1b4764612bc47005e6a5e2f63"},
-        {"url": "https://image.compute.bhs3.cloud.ovh.net/", "interface": "internal",
-        "region": "BHS3", "region_id": "BHS3", "id": "e42735da5bc441f9a8e3e0bae15b04fe"},
-        {"url": "https://image.compute.sbg3.cloud.ovh.net/", "interface": "public",
-        "region": "SBG3", "region_id": "SBG3", "id": "ef08d122a58848709126d1254bf59a02"},
-        {"url": "https://image.compute.de1.cloud.ovh.net/", "interface": "internal",
-        "region": "DE1", "region_id": "DE1", "id": "f4cb67c33bea4a0dbc08225dbed08df7"},
-        {"url": "https://image.compute.sbg3.cloud.ovh.net/", "interface": "admin",
-        "region": "SBG3", "region_id": "SBG3", "id": "f6b0fec86e2a43108935a0a598a120e5"}],
-        "type": "image", "id": "480216e24c6e4970b77ff352384548c3", "name": "glance"},
-        {"endpoints": [{"url": "https://volume.compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "WAW1", "region_id": "WAW1", "id": "00fbb01d92b2469e81bc1272547cb805"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "BHS3", "region_id": "BHS3", "id": "3972eee7dcde4dad8259361aca1f87fb"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "4b66981f8a374f848feb107284389c93"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "BHS3", "region_id": "BHS3", "id": "57f78bde577b42debb612e20e636dcd4"},
-        {"url": "https://volume.compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "64cee1c0383446099cbd2e13cb880e76"},
-        {"url": "https://volume.compute.waw1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "77fa2119725e40a59133db952552d362"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "BHS3", "region_id": "BHS3", "id": "8769f0d2fa834458bcceb96c9b01c5f6"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "DE1", "region_id": "DE1", "id": "8c1100f929bf46f886d05b8f32c25b93"},
-        {"url": "https://volume.compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "SBG3", "region_id": "SBG3", "id": "adcb0661a8984ed8af112ca772b0b965"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "ae06259fccf2406cb70fe359eeb26a4c"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "GRA3", "region_id": "GRA3", "id": "b2b8b18194b84d3da5b413987232c41c"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "DE1", "region_id": "DE1", "id": "bc9ada75f6e046c7a387357e44ed06b5"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "GRA3", "region_id": "GRA3", "id": "bd9b4fff05864263aceeeb10889617e8"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "DE1", "region_id": "DE1", "id": "c10da14a54d742dea6a4ca9442fd3b57"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "cb96c35a114e4973b25e4fdc53032bc3"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "UK1", "region_id": "UK1", "id": "cbb473c12ea048a6b886b1cf3753d65f"},
-        {"url": "https://volume.compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "SBG3", "region_id": "SBG3", "id": "d3b8b7badffa40f4883a091806812e33"},
-        {"url": "https://volume.compute.sbg3.cloud.ovh.net/v2/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "SBG3", "region_id": "SBG3", "id": "de5928036874436c94bbe86a54b0dcfd"}],
-        "type": "volumev2", "id": "7ad83a788bcc4be7bf2087ca41846b35", "name": "cinderv2"},
-        {"endpoints": [{"url": "https://orchestration.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "1c87fcb570524badb7f7a452ea97c2ce"},
-        {"url": "https://orchestration.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "DE1", "region_id": "DE1", "id": "336ccf59cf32417db3df23ad8965bbb3"},
-        {"url": "https://orchestration.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "UK1", "region_id": "UK1", "id": "4c2057b2302a4027a458e5fdc1ed31b4"},
-        {"url": "https://orchestration.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "7c068ae1042a478c9738db002d63b25b"},
-        {"url": "https://orchestration.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "7ecf41c197a5431dada57ae6d75da80d"},
-        {"url": "https://orchestration.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "DE1", "region_id": "DE1", "id": "90fe699cc7a44a35a9bcbaa9aa198501"},
-        {"url": "https://orchestration.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "93ea11d2dfbf4f4e9deb4ffb4aeceff6"},
-        {"url": "https://orchestration.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "WAW1", "region_id": "WAW1", "id": "987a79503b4844a2bf0d79a46f9cdb4f"},
-        {"url": "https://orchestration.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "DE1", "region_id": "DE1", "id": "cae81c8a8c564c01a4b4b90ee54a9a7d"},
-        {"url": "https://orchestration.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "d57861d95770458d831d3e8f9c3d11f9"},
-        {"url": "https://orchestration.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "GRA3", "region_id": "GRA3", "id": "fb6808ad5fb94e479b2914270ea6abfa"},
-        {"url": "https://orchestration.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "GRA3", "region_id": "GRA3", "id": "fdfbfb58aaef44c08828316751b60885"}],
-        "type": "orchestration", "id": "8deed687a32a491693996e47905edac5", "name":
-        "heat"}, {"endpoints": [{"url": "https://storage.de1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "DE1", "region_id": "DE1", "id": "0d7e155dc4af474182b91b07966d6533"},
-        {"url": "https://storage.de1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "DE1", "region_id": "DE1", "id": "1bdb6d6da54a4b1ea05abb31a77f0cea"},
-        {"url": "https://storage.uk1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "1ddd8040b5b047b4ac524fbbb6e287c2"},
-        {"url": "https://storage.sbg3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "SBG3", "region_id": "SBG3", "id": "27dc827fa45842809e5ffc798c1db7be"},
-        {"url": "https://storage.sbg3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "SBG3", "region_id": "SBG3", "id": "28481b82f32343c39f1f4b3b60772078"},
-        {"url": "https://storage.de1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "DE1", "region_id": "DE1", "id": "2fe4331ddbe74173a484d2610e4397df"},
-        {"url": "https://storage.waw1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "WAW1", "region_id": "WAW1", "id": "3aecce47501d476dac26ff41143ddc01"},
-        {"url": "https://storage.sbg3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "SBG3", "region_id": "SBG3", "id": "4c241f92d32446fcb6dc9bb4c4085b02"},
-        {"url": "https://storage.bhs3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "BHS3", "region_id": "BHS3", "id": "54460c0ed9c443e8abff23aa8fed5d65"},
-        {"url": "https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "GRA3", "region_id": "GRA3", "id": "6cad60d3453c44429fa4bfc4789d84e9"},
-        {"url": "https://storage.bhs3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "BHS3", "region_id": "BHS3", "id": "75082d582e02439da40cb221b1376f27"},
-        {"url": "https://storage.uk1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "UK1", "region_id": "UK1", "id": "c05a768bdfa444a18e7a81680c6c89da"},
-        {"url": "https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "GRA3", "region_id": "GRA3", "id": "c369b1e1907344c2a1274522b17aa5f9"},
-        {"url": "https://storage.waw1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "c8c146796dad4150ab3197c247e3b2b4"},
-        {"url": "https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "de0387e625b64e36ae2d69788401b180"},
-        {"url": "https://storage.bhs3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "BHS3", "region_id": "BHS3", "id": "de756cbf13f346da967cbca35f645cb8"},
-        {"url": "https://storage.uk1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "e7b4529a0eba4c32b4b537ff0a4e1a3a"},
-        {"url": "https://storage.waw1.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "f6ad9820266843bb9138848ae9a29132"}],
-        "type": "object-store", "id": "9afff7a684eb4830b08366fce2b94c57", "name":
-        "swift"}, {"endpoints": [{"url": "https://volume.compute.sbg3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "SBG3", "region_id": "SBG3", "id": "04718b9d79054055be6a49a0cf82d46e"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "BHS3", "region_id": "BHS3", "id": "0914e59707894620b24e62faee393074"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "BHS3", "region_id": "BHS3", "id": "36700d41fe8146059b2c5a5583558c5a"},
-        {"url": "https://volume.compute.bhs3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "BHS3", "region_id": "BHS3", "id": "3b8ac36338f74e3597d5ab5bf28f222e"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "UK1", "region_id": "UK1", "id": "49b544905f134a80a397f8fb70367d4f"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "GRA3", "region_id": "GRA3", "id": "513b1127590049af859ae5357d2d043e"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "DE1", "region_id": "DE1", "id": "6bf5ed80d8bd43e5b957b5f755379583"},
-        {"url": "https://volume.compute.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "WAW1", "region_id": "WAW1", "id": "738e8d493217409ab6a8d0b67aba9e38"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "DE1", "region_id": "DE1", "id": "79ab58093c504afa8b6afa45384ca469"},
-        {"url": "https://volume.compute.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "WAW1", "region_id": "WAW1", "id": "79d10546a4134193a865e088a9d75a9e"},
-        {"url": "https://volume.compute.waw1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "WAW1", "region_id": "WAW1", "id": "84b0ee27e3614518aa5b97c87539f15e"},
-        {"url": "https://volume.compute.sbg3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "SBG3", "region_id": "SBG3", "id": "8b1ce54425774bb3a0204e8053f2d373"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "GRA3", "region_id": "GRA3", "id": "91f56d7d082b46fb9f7046e337dbdc5d"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "UK1", "region_id": "UK1", "id": "c8073db3b84d4ab987cc84fe6965a1da"},
-        {"url": "https://volume.compute.de1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "DE1", "region_id": "DE1", "id": "dacd79e854bb4630b5a037db3bd18658"},
-        {"url": "https://volume.compute.sbg3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "admin", "region": "SBG3", "region_id": "SBG3", "id": "deb281fcf17e47198fd6349b27f0f87c"},
-        {"url": "https://volume.compute.gra3.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "public", "region": "GRA3", "region_id": "GRA3", "id": "e31145fd9abb4694b12c2464c161b3e2"},
-        {"url": "https://volume.compute.uk1.cloud.ovh.net/v1/25064d4764a846de8053b0378aabfebb",
-        "interface": "internal", "region": "UK1", "region_id": "UK1", "id": "ed491d99c01d41c5ae2b039c1d4d1dc7"}],
-        "type": "volume", "id": "f9cfa350a3e2452c9ae64f3846d9d213", "name": "cinder"}],
-        "expires_at": "2019-03-09T18:08:34.000000Z", "user": {"password_expires_at":
-        null, "domain": {"id": "default", "name": "Default"}, "id": "532aa47b8ff9491186b4d2e19cac1f77",
-        "name": "<USERNAME>"}, "audit_ids": ["eUv0p5A5RGK9zN08-FxTJw"], "issued_at":
-        "2019-03-08T18:08:34.000000Z"}}'
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:34 GMT
-- request:
     method: put
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/xtapjjcjiudrlk3tmwyjgpuobabd
     body:
       encoding: ASCII-8BIT
       string: !binary |-
@@ -407,364 +22,36 @@ http_interactions:
       Etag:
       - 5855b4de770b090c49cb5a24d0795865
       X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
+      - gAAAAABchhjyN0GhjwAoNuKE439qYDLUSIxuzAEzYEoxZYZb5hUqtXuLT12squG6T6JrO5qzaWPImS0BuxuHhK5bsFS8f3nZtPIljnTxRVn87T-WvX2288dl_gasfWrl-AfpMOQaGHmfVMSVGrtvqexIszlr234f6EGRZ7yZ92szuUqSGS3Qu-w
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 201
+      message: Created
     headers:
-      Content-Length:
-      - '131'
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      X-Trans-Id:
-      - tx2bc118a459ac40848691f-005c82afa2
-      X-Openstack-Request-Id:
-      - tx2bc118a459ac40848691f-005c82afa2
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12308'
-    body:
-      encoding: UTF-8
-      string: "<html><h1>Unauthorized</h1><p>This server could not verify that you
-        are authorized to access the document you requested.</p></html>"
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
+      Last-Modified:
+      - Mon, 11 Mar 2019 08:29:58 GMT
       Content-Length:
       - '0'
-      X-Trans-Id:
-      - tx801d5165d056469ba28e5-005c82afa3
-      X-Openstack-Request-Id:
-      - tx801d5165d056469ba28e5-005c82afa3
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
       Content-Type:
       - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
       X-Trans-Id:
-      - tx7621668f110a4937b724f-005c82afa3
+      - tx3c0d39905b6642248f46c-005c861c85
       X-Openstack-Request-Id:
-      - tx7621668f110a4937b724f-005c82afa3
+      - tx3c0d39905b6642248f46c-005c861c85
       Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - txac688be7fa0a41fd8b4c6-005c82afa3
-      X-Openstack-Request-Id:
-      - txac688be7fa0a41fd8b4c6-005c82afa3
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - tx523e5906390044e997119-005c82afa3
-      X-Openstack-Request-Id:
-      - tx523e5906390044e997119-005c82afa3
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - tx87c83bf5004445ddbd5ae-005c82afa3
-      X-Openstack-Request-Id:
-      - tx87c83bf5004445ddbd5ae-005c82afa3
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - tx99b67a6e9e634405a6441-005c82afa3
-      X-Openstack-Request-Id:
-      - tx99b67a6e9e634405a6441-005c82afa3
-      Date:
-      - Fri, 08 Mar 2019 18:08:35 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:35 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - tx3af0eada12b2472aa1b96-005c82afa4
-      X-Openstack-Request-Id:
-      - tx3af0eada12b2472aa1b96-005c82afa4
-      Date:
-      - Fri, 08 Mar 2019 18:08:36 GMT
-      X-Iplb-Instance:
-      - '12309'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:36 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
-      Content-Length:
-      - '0'
-      X-Trans-Id:
-      - txfd202bd333b145c6a31f0-005c82afa4
-      X-Openstack-Request-Id:
-      - txfd202bd333b145c6a31f0-005c82afa4
-      Date:
-      - Fri, 08 Mar 2019 18:08:36 GMT
+      - Mon, 11 Mar 2019 08:29:57 GMT
       X-Iplb-Instance:
       - '12308'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:36 GMT
+  recorded_at: Mon, 11 Mar 2019 08:29:57 GMT
 - request:
     method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/xtapjjcjiudrlk3tmwyjgpuobabd
     body:
       encoding: US-ASCII
       string: ''
@@ -777,39 +64,46 @@ http_interactions:
       Host:
       - storage.gra3.cloud.ovh.net
       X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
+      - gAAAAABchhjyN0GhjwAoNuKE439qYDLUSIxuzAEzYEoxZYZb5hUqtXuLT12squG6T6JrO5qzaWPImS0BuxuHhK5bsFS8f3nZtPIljnTxRVn87T-WvX2288dl_gasfWrl-AfpMOQaGHmfVMSVGrtvqexIszlr234f6EGRZ7yZ92szuUqSGS3Qu-w
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 200
+      message: OK
     headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
       Content-Length:
-      - '0'
+      - '367'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Mon, 11 Mar 2019 08:29:58 GMT
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1552292997.41833'
+      Content-Type:
+      - image/jpeg
       X-Trans-Id:
-      - txc509d274706a4cce8d5b9-005c82afa4
+      - tx6ef19ae183504ab6892d0-005c861c86
       X-Openstack-Request-Id:
-      - txc509d274706a4cce8d5b9-005c82afa4
+      - tx6ef19ae183504ab6892d0-005c861c86
       Date:
-      - Fri, 08 Mar 2019 18:08:36 GMT
+      - Mon, 11 Mar 2019 08:29:58 GMT
       X-Iplb-Instance:
       - '12309'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:36 GMT
+  recorded_at: Mon, 11 Mar 2019 08:29:58 GMT
 - request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/mhfrznsdnok2q7b8wo12ff1zbuiv
+    method: get
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/xtapjjcjiudrlk3tmwyjgpuobabd
     body:
       encoding: US-ASCII
       string: ''
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
       - application/json
@@ -817,31 +111,41 @@ http_interactions:
       - Ruby
       Host:
       - storage.gra3.cloud.ovh.net
+      Range:
+      - bytes=0-5242879
       X-Auth-Token:
-      - gAAAAABcf8FqscuipdBjiFE3dhYg7zLLvkPcdARNIXbawZciidx447h4zqWsrmJORl84f-vTv60ztpIDshIRpctAJw9GqBllAb4lS_3O6OAcJ-ZbFvUyT_VhXGqG0PYXcjAeEB4auZJDR133_Y958hCbrsmKXaiietVlt89fC49YGf44IcOG-2M
+      - gAAAAABchhjyN0GhjwAoNuKE439qYDLUSIxuzAEzYEoxZYZb5hUqtXuLT12squG6T6JrO5qzaWPImS0BuxuHhK5bsFS8f3nZtPIljnTxRVn87T-WvX2288dl_gasfWrl-AfpMOQaGHmfVMSVGrtvqexIszlr234f6EGRZ7yZ92szuUqSGS3Qu-w
   response:
     status:
-      code: 401
-      message: Unauthorized
+      code: 206
+      message: Partial Content
     headers:
-      Content-Type:
-      - text/html; charset=UTF-8
-      Www-Authenticate:
-      - Keystone uri='https://auth.cloud.ovh.net/'
-      - Swift realm="AUTH_25064d4764a846de8053b0378aabfebb"
       Content-Length:
-      - '0'
+      - '367'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Mon, 11 Mar 2019 08:29:58 GMT
+      Content-Range:
+      - bytes 0-366/367
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1552292997.41833'
+      Content-Type:
+      - image/jpeg
       X-Trans-Id:
-      - txefbc64685ee642968547a-005c82afa4
+      - tx91207910ec564c968838f-005c861c86
       X-Openstack-Request-Id:
-      - txefbc64685ee642968547a-005c82afa4
+      - tx91207910ec564c968838f-005c861c86
       Date:
-      - Fri, 08 Mar 2019 18:08:36 GMT
+      - Mon, 11 Mar 2019 08:29:58 GMT
       X-Iplb-Instance:
-      - '12308'
+      - '12309'
     body:
-      encoding: UTF-8
-      string: ''
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADIAMgMBIgACEQEDEQH/xABaAAEBAQEBAAAAAAAAAAAAAAAAAgQBBxABAAICAQQDAAAAAAAAAAAAAAECAxESBCExUUFCoQEBAAAAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9MAAAAAAAABOWs3xXpHm1ZgFDFg6XNjve17VndZiOPb1rxHxr9lzL0me80nnS0xERfl9tTv122DcIw0nHhx0tblNaxEz77LAAAAAAAAAAAAAAAAAAB//2Q==
     http_version: 
-  recorded_at: Fri, 08 Mar 2019 18:08:36 GMT
+  recorded_at: Mon, 11 Mar 2019 08:29:58 GMT
 recorded_with: VCR 4.0.0
