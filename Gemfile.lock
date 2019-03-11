@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activestorage-openstack (0.1.0)
+    activestorage_openstack (0.1.0)
       marcel
       rails (~> 6.0.0.beta2)
       tzinfo-data
@@ -291,7 +291,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activestorage-openstack!
+  activestorage_openstack!
   awesome_print
   byebug
   coderay
