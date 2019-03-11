@@ -19,6 +19,7 @@ module ActiveStorage
             @authenticator = authenticator
             @container = container
             @region = region
+            authenticate
           end
 
           def call
