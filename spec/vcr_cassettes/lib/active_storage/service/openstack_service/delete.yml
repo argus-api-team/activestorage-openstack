@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - tx8e7dd3d5c3c6489dbb7c6-005c87eac3
+      X-Openstack-Request-Id:
+      - tx8e7dd3d5c3c6489dbb7c6-005c87eac3
+      Date:
+      - Tue, 12 Mar 2019 17:22:12 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 17:22:12 GMT
+recorded_with: VCR 4.0.0

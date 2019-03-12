@@ -1,0 +1,149 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/test.jpg
+    body:
+      encoding: ASCII-8BIT
+      string: '0123456789'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Content-Type:
+      - application/octet-stream
+      Etag:
+      - 781e5e245d69b566979b86e28d23f2c7
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:46 GMT
+      Content-Length:
+      - '0'
+      Etag:
+      - 781e5e245d69b566979b86e28d23f2c7
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - tx8e6ee9fb4e7a481ebb662-005c87e275
+      X-Openstack-Request-Id:
+      - tx8e6ee9fb4e7a481ebb662-005c87e275
+      Date:
+      - Tue, 12 Mar 2019 16:46:45 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:45 GMT
+- request:
+    method: head
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '10'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:46 GMT
+      Etag:
+      - 781e5e245d69b566979b86e28d23f2c7
+      X-Timestamp:
+      - '1552409205.28436'
+      Content-Type:
+      - application/octet-stream
+      X-Trans-Id:
+      - txe0a890d1a79e453986f98-005c87e275
+      X-Openstack-Request-Id:
+      - txe0a890d1a79e453986f98-005c87e275
+      Date:
+      - Tue, 12 Mar 2019 16:46:45 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:45 GMT
+- request:
+    method: get
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Range:
+      - bytes=2-5
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 206
+      message: Partial Content
+    headers:
+      Content-Length:
+      - '4'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:46 GMT
+      Content-Range:
+      - bytes 2-5/10
+      Etag:
+      - 781e5e245d69b566979b86e28d23f2c7
+      X-Timestamp:
+      - '1552409205.28436'
+      Content-Type:
+      - application/octet-stream
+      X-Trans-Id:
+      - tx5b04bbdc52004d47a9768-005c87e275
+      X-Openstack-Request-Id:
+      - tx5b04bbdc52004d47a9768-005c87e275
+      Date:
+      - Tue, 12 Mar 2019 16:46:45 GMT
+      X-Iplb-Instance:
+      - '12309'
+    body:
+      encoding: UTF-8
+      string: '2345'
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:45 GMT
+recorded_with: VCR 4.0.0

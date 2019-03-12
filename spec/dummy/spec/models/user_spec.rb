@@ -8,7 +8,6 @@ RSpec.describe User do
   let(:random_key) { 'xtapjjcjiudrlk3tmwyjgpuobabd' }
 
   before do
-    Rails.cache.clear
     # Fixed key so VCR cassettes won't grow.
     allow(ActiveStorage::Blob).to(
       receive(:generate_unique_secure_token).and_return(random_key)

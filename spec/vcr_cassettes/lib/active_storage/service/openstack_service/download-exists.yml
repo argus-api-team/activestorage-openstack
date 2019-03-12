@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: put
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADIAMgMBIgACEQEDEQH/xABaAAEBAQEBAAAAAAAAAAAAAAAAAgQBBxABAAICAQQDAAAAAAAAAAAAAAECAxESBCExUUFCoQEBAAAAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9MAAAAAAAABOWs3xXpHm1ZgFDFg6XNjve17VndZiOPb1rxHxr9lzL0me80nnS0xERfl9tTv122DcIw0nHhx0tblNaxEz77LAAAAAAAAAAAAAAAAAAB//2Q==
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      Content-Type:
+      - image/jpeg
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:42 GMT
+      Content-Length:
+      - '0'
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - txbb7893cedb294e92a43ed-005c87e271
+      X-Openstack-Request-Id:
+      - txbb7893cedb294e92a43ed-005c87e271
+      Date:
+      - Tue, 12 Mar 2019 16:46:41 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:41 GMT
+- request:
+    method: head
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '367'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:42 GMT
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1552409201.61675'
+      Content-Type:
+      - image/jpeg
+      X-Trans-Id:
+      - txf497e75f09fa463188520-005c87e271
+      X-Openstack-Request-Id:
+      - txf497e75f09fa463188520-005c87e271
+      Date:
+      - Tue, 12 Mar 2019 16:46:41 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:41 GMT
+- request:
+    method: get
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/fixtures/files/images/test.jpg
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABch9GVm1q5Yk_fh8dGotPTeM3dN2XAqjhT4ViQmD03FHA6EWMHrBgZpoq_4Any6r6QcDNWY7CsBO2B14_0K9gUpL_LnkseXPPRncRv1FU19bBxQ56Mm1_Tp-tcljBXHl5iIr4Gk-efceIjaHHQwjbyNqulb0eCdmHE9Irh0lRO-4V27MU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '367'
+      Accept-Ranges:
+      - bytes
+      Last-Modified:
+      - Tue, 12 Mar 2019 16:46:42 GMT
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
+      X-Timestamp:
+      - '1552409201.61675'
+      Content-Type:
+      - image/jpeg
+      X-Trans-Id:
+      - tx0e6840722dbf4c96a8e07-005c87e271
+      X-Openstack-Request-Id:
+      - tx0e6840722dbf4c96a8e07-005c87e271
+      Date:
+      - Tue, 12 Mar 2019 16:46:41 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /9j/4AAQSkZJRgABAQEAYABgAAD/2wCEAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDIBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIADIAMgMBIgACEQEDEQH/xABaAAEBAQEBAAAAAAAAAAAAAAAAAgQBBxABAAICAQQDAAAAAAAAAAAAAAECAxESBCExUUFCoQEBAAAAAAAAAAAAAAAAAAAAABEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A9MAAAAAAAABOWs3xXpHm1ZgFDFg6XNjve17VndZiOPb1rxHxr9lzL0me80nnS0xERfl9tTv122DcIw0nHhx0tblNaxEz77LAAAAAAAAAAAAAAAAAAB//2Q==
+    http_version: 
+  recorded_at: Tue, 12 Mar 2019 16:46:41 GMT
+recorded_with: VCR 4.0.0
