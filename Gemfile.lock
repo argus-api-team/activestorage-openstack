@@ -2,10 +2,10 @@ PATH
   remote: .
   specs:
     activestorage_openstack (0.1.0)
-      marcel
+      marcel (~> 0.3)
       rails (~> 6.0.0.beta2)
-      tzinfo-data
-      zeitwerk
+      tzinfo-data (~> 1.2)
+      zeitwerk (~> 1.3)
 
 GEM
   remote: https://rubygems.org/

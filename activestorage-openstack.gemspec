@@ -34,10 +34,10 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
     'README.md'
   ]
 
-  spec.add_dependency 'marcel'
-  spec.add_dependency 'rails', '~> 6.0.0.beta2'
-  spec.add_dependency 'tzinfo-data'
-  spec.add_dependency 'zeitwerk'
+  spec.add_runtime_dependency 'marcel', '~> 0.3'
+  spec.add_runtime_dependency 'rails', '~> 6.0.0.beta2'
+  spec.add_runtime_dependency 'tzinfo-data', '~> 1.2'
+  spec.add_runtime_dependency 'zeitwerk', '~> 1.3'
 
   spec.add_development_dependency 'rspec-rails', '~> 3.8'
   spec.add_development_dependency 'sqlite3', '~> 1.3.6'
