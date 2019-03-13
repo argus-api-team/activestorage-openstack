@@ -59,9 +59,7 @@ module ActiveStorage
         instrument :delete_prefixed, prefix: prefix do
           keys = JSON.parse(
             storage.list_objects(prefix: prefix).body
-          ).map do |object|
-            "/#{storage.container}/#{object.fetch('name')}"
-          end
+          ).map { |object| "/#{storage.container}/#{object.fetch('name')}" }
 
           storage.bulk_delete_objects(keys)
         end

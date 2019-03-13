@@ -217,7 +217,7 @@ describe ActiveStorage::Service::OpenstackService do
     end
   end
 
-  xdescribe '#delete_prefixed', vcr: {
+  describe '#delete_prefixed', vcr: {
     cassette_name: "#{cassette_path}/delete_prefixed",
     record: :new_episodes
   } do

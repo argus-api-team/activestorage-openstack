@@ -5,6 +5,10 @@ ENV APP_FOLDER /app
 ENV PORT 3000
 ENV RAILS_ENV development
 ENV POOL_SIZE 25
+ENV BUILD_PACKAGES alpine-sdk \
+                   git \
+                   sqlite \
+                   sqlite-dev
 
 EXPOSE $PORT
 
@@ -12,11 +16,7 @@ COPY . $APP_FOLDER
 
 WORKDIR $APP_FOLDER
 
-RUN apk --update add --no-cache \
-    alpine-sdk \
-    git \
-    sqlite \
-    sqlite-dev && \
+RUN apk --update add --no-cache $BUILD_PACKAGES && \
     echo 'gem: --no-rdoc --no-ri' > ~/.gemrc && \
     bundle install --clean --jobs 4 && \
     addgroup -g 1000 -S $APP_USER && \

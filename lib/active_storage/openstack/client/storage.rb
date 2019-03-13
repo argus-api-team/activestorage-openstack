@@ -26,7 +26,7 @@ module ActiveStorage
         end
 
         def uri
-          @uri ||= URI(ObjectStoreURL.new(
+          URI(ObjectStoreURL.new(
             authenticator: authenticator,
             container: container,
             region: region

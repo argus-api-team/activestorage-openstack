@@ -29,7 +29,7 @@ http_interactions:
       message: Created
     headers:
       Last-Modified:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:57 GMT
       Content-Length:
       - '0'
       Etag:
@@ -37,18 +37,18 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - txda0792a4ee6e49d0a828c-005c87ec01
+      - tx627ddf9afdcd4436a3e99-005c8913a8
       X-Openstack-Request-Id:
-      - txda0792a4ee6e49d0a828c-005c87ec01
+      - tx627ddf9afdcd4436a3e99-005c8913a8
       Date:
-      - Tue, 12 Mar 2019 17:27:29 GMT
+      - Wed, 13 Mar 2019 14:28:57 GMT
       X-Iplb-Instance:
-      - '12308'
+      - '12309'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:29 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:57 GMT
 - request:
     method: put
     uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/a/a/b
@@ -78,7 +78,7 @@ http_interactions:
       message: Created
     headers:
       Last-Modified:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:58 GMT
       Content-Length:
       - '0'
       Etag:
@@ -86,18 +86,18 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - txe2181a13a3844df4a374a-005c87ec01
+      - txc379a09410a041eaa3cb3-005c8913a9
       X-Openstack-Request-Id:
-      - txe2181a13a3844df4a374a-005c87ec01
+      - txc379a09410a041eaa3cb3-005c8913a9
       Date:
-      - Tue, 12 Mar 2019 17:27:29 GMT
+      - Wed, 13 Mar 2019 14:28:57 GMT
       X-Iplb-Instance:
       - '12309'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:29 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:57 GMT
 - request:
     method: put
     uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/a/b/a
@@ -127,7 +127,7 @@ http_interactions:
       message: Created
     headers:
       Last-Modified:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:58 GMT
       Content-Length:
       - '0'
       Etag:
@@ -135,18 +135,18 @@ http_interactions:
       Content-Type:
       - text/html; charset=UTF-8
       X-Trans-Id:
-      - tx5d63c84ee6fd4357bc1b6-005c87ec01
+      - txc5447efd83b94e27b8a44-005c8913a9
       X-Openstack-Request-Id:
-      - tx5d63c84ee6fd4357bc1b6-005c87ec01
+      - txc5447efd83b94e27b8a44-005c8913a9
       Date:
-      - Tue, 12 Mar 2019 17:27:29 GMT
+      - Wed, 13 Mar 2019 14:28:57 GMT
       X-Iplb-Instance:
-      - '12308'
+      - '12309'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:29 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:57 GMT
 - request:
     method: get
     uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?prefix=a/a/
@@ -187,21 +187,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       X-Trans-Id:
-      - txa0d552e935f046e4a3f3b-005c87ec02
+      - tx01bf13491ca5414c89792-005c8913a9
       X-Openstack-Request-Id:
-      - txa0d552e935f046e4a3f3b-005c87ec02
+      - tx01bf13491ca5414c89792-005c8913a9
       Date:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:57 GMT
       X-Iplb-Instance:
-      - '12309'
+      - '12308'
     body:
       encoding: UTF-8
-      string: '[{"hash": "5855b4de770b090c49cb5a24d0795865", "last_modified": "2019-03-12T17:27:29.443090",
+      string: '[{"hash": "5855b4de770b090c49cb5a24d0795865", "last_modified": "2019-03-13T14:28:56.983380",
         "bytes": 367, "name": "a/a/a", "content_type": "image/jpeg"}, {"hash": "5855b4de770b090c49cb5a24d0795865",
-        "last_modified": "2019-03-12T17:27:29.625300", "bytes": 367, "name": "a/a/b",
+        "last_modified": "2019-03-13T14:28:57.242530", "bytes": 367, "name": "a/a/b",
         "content_type": "image/jpeg"}]'
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:30 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:57 GMT
 - request:
     method: post
     uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?bulk-delete
@@ -233,11 +233,11 @@ http_interactions:
       Content-Type:
       - application/json
       X-Trans-Id:
-      - tx738002c882ac43cdbaff2-005c87ec02
+      - tx06d20c18e77e4cdcaf1d8-005c8913aa
       X-Openstack-Request-Id:
-      - tx738002c882ac43cdbaff2-005c87ec02
+      - tx06d20c18e77e4cdcaf1d8-005c8913aa
       Date:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:58 GMT
       Transfer-Encoding:
       - chunked
       X-Iplb-Instance:
@@ -247,10 +247,10 @@ http_interactions:
       string: '{"Number Not Found": 0, "Response Status": "200 OK", "Errors": [],
         "Number Deleted": 2, "Response Body": ""}'
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:30 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:58 GMT
 - request:
     method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?bulk-delete/a/a/a
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/a/a/a
     body:
       encoding: US-ASCII
       string: ''
@@ -266,41 +266,67 @@ http_interactions:
       - gAAAAABch-tMAv6B2Anb6FPDZSbAw0HAW5lWSsg23jCHl1GvhakKrOcc-1J7iPu21gn06M4-V6WohbnbSCSaJg9L3lU4e6LPr3UKsgwyZodIM-XuqIzyleMnqWzrRsbHO8GZN5KFlRCzPZfMCaZY-ByTyKTplIiPOaUxrlR8k_GUowJs6gXoBzI
   response:
     status:
-      code: 204
-      message: No Content
+      code: 404
+      message: Not Found
     headers:
       Content-Length:
       - '0'
-      X-Container-Object-Count:
-      - '11'
-      Accept-Ranges:
-      - bytes
-      X-Storage-Policy:
-      - PCS
-      Last-Modified:
-      - Tue, 12 Mar 2019 14:25:21 GMT
-      X-Container-Bytes-Used:
-      - '18966999'
-      X-Timestamp:
-      - '1542803957.63137'
       Content-Type:
-      - application/json; charset=utf-8
+      - text/html; charset=UTF-8
       X-Trans-Id:
-      - tx808c573dc2e44da59a556-005c87ec02
+      - txc1a64bf7fdff4a38ae3d7-005c8913aa
       X-Openstack-Request-Id:
-      - tx808c573dc2e44da59a556-005c87ec02
+      - txc1a64bf7fdff4a38ae3d7-005c8913aa
       Date:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:58 GMT
+      X-Iplb-Instance:
+      - '12308'
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 13 Mar 2019 14:28:58 GMT
+- request:
+    method: head
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/a/a/b
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - storage.gra3.cloud.ovh.net
+      X-Auth-Token:
+      - gAAAAABch-tMAv6B2Anb6FPDZSbAw0HAW5lWSsg23jCHl1GvhakKrOcc-1J7iPu21gn06M4-V6WohbnbSCSaJg9L3lU4e6LPr3UKsgwyZodIM-XuqIzyleMnqWzrRsbHO8GZN5KFlRCzPZfMCaZY-ByTyKTplIiPOaUxrlR8k_GUowJs6gXoBzI
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - text/html; charset=UTF-8
+      X-Trans-Id:
+      - tx0dd90041d7774d61aa965-005c8913aa
+      X-Openstack-Request-Id:
+      - tx0dd90041d7774d61aa965-005c8913aa
+      Date:
+      - Wed, 13 Mar 2019 14:28:58 GMT
       X-Iplb-Instance:
       - '12309'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:30 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:58 GMT
 - request:
     method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?bulk-delete/a/a/b
+    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api/a/b/a
     body:
       encoding: US-ASCII
       string: ''
@@ -316,86 +342,32 @@ http_interactions:
       - gAAAAABch-tMAv6B2Anb6FPDZSbAw0HAW5lWSsg23jCHl1GvhakKrOcc-1J7iPu21gn06M4-V6WohbnbSCSaJg9L3lU4e6LPr3UKsgwyZodIM-XuqIzyleMnqWzrRsbHO8GZN5KFlRCzPZfMCaZY-ByTyKTplIiPOaUxrlR8k_GUowJs6gXoBzI
   response:
     status:
-      code: 204
-      message: No Content
+      code: 200
+      message: OK
     headers:
       Content-Length:
-      - '0'
-      X-Container-Object-Count:
-      - '11'
+      - '367'
       Accept-Ranges:
       - bytes
-      X-Storage-Policy:
-      - PCS
       Last-Modified:
-      - Tue, 12 Mar 2019 14:25:21 GMT
-      X-Container-Bytes-Used:
-      - '18966999'
+      - Wed, 13 Mar 2019 14:28:58 GMT
+      Etag:
+      - 5855b4de770b090c49cb5a24d0795865
       X-Timestamp:
-      - '1542803957.63137'
+      - '1552487337.45390'
       Content-Type:
-      - application/json; charset=utf-8
+      - image/jpeg
       X-Trans-Id:
-      - txb18921a9111549b393d94-005c87ec02
+      - tx430c1039697d468cb5bb6-005c8913aa
       X-Openstack-Request-Id:
-      - txb18921a9111549b393d94-005c87ec02
+      - tx430c1039697d468cb5bb6-005c8913aa
       Date:
-      - Tue, 12 Mar 2019 17:27:30 GMT
+      - Wed, 13 Mar 2019 14:28:59 GMT
       X-Iplb-Instance:
       - '12308'
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:30 GMT
-- request:
-    method: head
-    uri: https://storage.gra3.cloud.ovh.net/v1/AUTH_25064d4764a846de8053b0378aabfebb/test-assets-api?bulk-delete/a/b/a
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - "*/*"
-      - application/json
-      User-Agent:
-      - Ruby
-      Host:
-      - storage.gra3.cloud.ovh.net
-      X-Auth-Token:
-      - gAAAAABch-tMAv6B2Anb6FPDZSbAw0HAW5lWSsg23jCHl1GvhakKrOcc-1J7iPu21gn06M4-V6WohbnbSCSaJg9L3lU4e6LPr3UKsgwyZodIM-XuqIzyleMnqWzrRsbHO8GZN5KFlRCzPZfMCaZY-ByTyKTplIiPOaUxrlR8k_GUowJs6gXoBzI
-  response:
-    status:
-      code: 204
-      message: No Content
-    headers:
-      Content-Length:
-      - '0'
-      X-Container-Object-Count:
-      - '11'
-      Accept-Ranges:
-      - bytes
-      X-Storage-Policy:
-      - PCS
-      Last-Modified:
-      - Tue, 12 Mar 2019 14:25:21 GMT
-      X-Container-Bytes-Used:
-      - '18966999'
-      X-Timestamp:
-      - '1542803957.63137'
-      Content-Type:
-      - application/json; charset=utf-8
-      X-Trans-Id:
-      - txb3791c690639426f8af6c-005c87ec02
-      X-Openstack-Request-Id:
-      - txb3791c690639426f8af6c-005c87ec02
-      Date:
-      - Tue, 12 Mar 2019 17:27:30 GMT
-      X-Iplb-Instance:
-      - '12308'
-    body:
-      encoding: UTF-8
-      string: ''
-    http_version: 
-  recorded_at: Tue, 12 Mar 2019 17:27:30 GMT
+  recorded_at: Wed, 13 Mar 2019 14:28:59 GMT
 recorded_with: VCR 4.0.0
