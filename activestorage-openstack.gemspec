@@ -17,6 +17,8 @@ Gem::Specification.new do |spec|
   spec.description = 'OpenStack ActiveStorage service without dependencies.'
   spec.license     = 'MIT'
 
+  spec.required_ruby_version = '>= 2.6.2'
+
   spec.files = Dir[
     '{app,config,db,lib}/**/*',
     'MIT-LICENSE',

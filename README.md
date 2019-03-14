@@ -95,4 +95,4 @@ This project is licensed under the MIT License - see the [MIT-LICENSE](MIT-LICEN
 
 ## Acknowledgments
 
-* Inspiration from [chaadow's](https://github.com/chaadow) [activestorage-openstack plugin](https://github.com/chaadow/activestorage-openstack)
+* Inspiration from [@chaadow's](https://github.com/chaadow) [activestorage-openstack plugin](https://github.com/chaadow/activestorage-openstack)
