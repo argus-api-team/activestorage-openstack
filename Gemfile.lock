@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activestorage_openstack (0.1.1)
+    activestorage_openstack (0.1.2)
       marcel (~> 0.3)
       rails (~> 6.0.0.beta2)
       tzinfo-data (~> 1.2)
