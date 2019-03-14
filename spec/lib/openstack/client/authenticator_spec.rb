@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-describe ActiveStorage::Openstack::Client::Authenticator do
-  cassettes_path = 'lib/active_storage/openstack/authenticator'
+describe Openstack::Client::Authenticator do
+  cassettes_path = 'lib/openstack/authenticator'
 
   subject(:authenticator) do
     described_class.new username: username,

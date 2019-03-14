@@ -21,9 +21,9 @@ end
 
 loader = Zeitwerk::Loader.new
 # loader.logger = method(:puts)
+loader.inflector = CustomInflector.new
 loader.preload("#{GEM_ROOT}/active_storage/service/openstack_service.rb")
 loader.push_dir(GEM_ROOT)
-loader.inflector = CustomInflector.new
 loader.ignore(__dir__)
 loader.ignore("#{GEM_ROOT}/activestorage_openstack.rb")
 loader.setup

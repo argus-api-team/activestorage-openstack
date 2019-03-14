@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-describe ActiveStorage::Openstack::Client do
+describe Openstack::Client do
   subject(:client) do
     described_class.new username: username,
                         password: password
@@ -29,7 +29,7 @@ describe ActiveStorage::Openstack::Client do
 
     it do
       expect(authenticator).to an_instance_of(
-        ActiveStorage::Openstack::Client::Authenticator
+        Openstack::Client::Authenticator
       )
     end
   end
@@ -42,7 +42,7 @@ describe ActiveStorage::Openstack::Client do
 
     it do
       expect(storage).to an_instance_of(
-        ActiveStorage::Openstack::Client::Storage
+        Openstack::Client::Storage
       )
     end
   end

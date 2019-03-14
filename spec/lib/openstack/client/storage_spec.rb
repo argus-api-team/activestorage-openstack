@@ -2,8 +2,8 @@
 
 require 'digest'
 
-describe ActiveStorage::Openstack::Client::Storage do
-  cassette_path = 'lib/active_storage/openstack/storage'
+describe Openstack::Client::Storage do
+  cassette_path = 'lib/openstack/storage'
 
   subject(:storage) do
     described_class.new authenticator: authenticator,
@@ -14,15 +14,15 @@ describe ActiveStorage::Openstack::Client::Storage do
   let(:username) { Rails.application.credentials.openstack.fetch(:username) }
   let(:password) { Rails.application.credentials.openstack.fetch(:api_key) }
   let(:authenticator) do
-    ActiveStorage::Openstack::Client::Authenticator.new username: username,
-                                                        password: password
+    Openstack::Client::Authenticator.new username: username,
+                                         password: password
   end
   let(:container) { Rails.application.config.x.openstack.fetch(:container) }
   let(:region) { Rails.application.config.x.openstack.fetch(:region) }
 
   before do
     VCR.use_cassette(
-      'lib/active_storage/openstack/authenticator/authenticate'
+      'lib/openstack/authenticator/authenticate'
     ) do
       authenticator&.authenticate
     end
@@ -126,6 +126,9 @@ describe ActiveStorage::Openstack::Client::Storage do
 
     let(:filename) { 'test.jpg' }
     let(:key) { "fixtures/files/images/#{filename}" }
+    let(:file) { file_fixture("images/#{filename}") }
+    let(:io) { file.open }
+    let(:checksum) { Digest::MD5.file(file).base64digest }
 
     it { is_expected.to be_an_instance_of(Net::HTTPOK) }
 

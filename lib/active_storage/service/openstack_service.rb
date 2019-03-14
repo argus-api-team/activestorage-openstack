@@ -8,9 +8,9 @@ module ActiveStorage
 
       def initialize(credentials:, container:, region:, **config)
         @config = config
-        @credentials = credentials
-        @client = Openstack::Client.new username: credentials.fetch(:username),
-                                        password: credentials.fetch(:api_key)
+        @credentials = OpenStruct.new credentials
+        @client = ::Openstack::Client.new username: credentials.username,
+                                          password: credentials.api_key
         @storage = client.storage container: container,
                                   region: region
       end

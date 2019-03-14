@@ -6,7 +6,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'active_storage/openstack/version'
 
 # Describe your gem and declare its dependencies:
-Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
+Gem::Specification.new do |spec|
   spec.platform    = Gem::Platform::RUBY
   spec.name        = 'activestorage_openstack'
   spec.version     = ActiveStorage::Openstack::VERSION
