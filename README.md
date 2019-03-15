@@ -33,7 +33,7 @@ openstack:
   credentials:
     username: __username__
     api_key: __api_key__
-    temporary_url_key: temporary_irl_key
+    temporary_url_key: __temporary_url_key__
 ```
 
 Then add to your `config/environments/*.rb` files:
