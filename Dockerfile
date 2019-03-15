@@ -17,6 +17,7 @@ COPY . $APP_FOLDER
 WORKDIR $APP_FOLDER
 
 RUN apk --update add --no-cache $BUILD_PACKAGES && \
+    gem install bundler && \
     echo 'gem: --no-rdoc --no-ri' > ~/.gemrc && \
     bundle install --clean --jobs 4 && \
     addgroup -g 1000 -S $APP_USER && \
