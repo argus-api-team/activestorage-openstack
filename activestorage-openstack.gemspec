@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_runtime_dependency 'marcel', '~> 0.3'
-  spec.add_runtime_dependency 'rails', '~> 6.0.0.beta2'
+  spec.add_runtime_dependency 'rails', '~> 6.0.0.beta3'
   spec.add_runtime_dependency 'tzinfo-data', '~> 1.2'
   spec.add_runtime_dependency 'zeitwerk', '~> 1.3'
 
