@@ -33,7 +33,7 @@ module Openstack
         authentication_succeed?
       end
 
-      def authenticate_request(&_request)
+      def authenticate_request
         return unless block_given?
 
         authenticate
