@@ -29,7 +29,7 @@ group :test do
   gem 'reek'
   gem 'rubocop'
   gem 'rubocop-rspec'
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'shoulda-matchers', '4.0.1'
   gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
