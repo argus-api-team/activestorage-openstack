@@ -3,7 +3,7 @@ PATH
   specs:
     activestorage_openstack (0.1.3)
       marcel (~> 0.3)
-      rails (~> 6.0.0.beta2)
+      rails (~> 6.0.0.beta3)
       tzinfo-data (~> 1.2)
       zeitwerk (~> 1.3)
 
