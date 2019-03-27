@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.1.3] - 2019-03-25
+### Added
+- ci(dummy): Add tmp folder so Rails can generate secret [@mickael-palma-argus].
+- ci(addon): Add dependabot-bot [@mickael-palma-argus].
+
+### Changed
+- docs(README): Add badges to README [@mickael-palma-argus].
+- build(gem): update gems [@mickael-palma-argus].
 
 ## [0.1.2] - 2019-03-14
 
