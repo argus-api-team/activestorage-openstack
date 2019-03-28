@@ -75,17 +75,17 @@ The scope should be the name of the area affected (as perceived by the person re
 
 The following is the list of supported scopes:
 
-* **config***: Application configuration
-* **controller***: Application controller
-* **docker***: Docker environnement
-* **gem***: Gem dependencies
-* **jobs***: Application background jobs
-* **lib***: Helpers/Utility classes...
-* **model***: Application model
-* **resource***: JSON API Ressource
-* **ruby***: Ruby version
-* **serializer***: Application serializer
-* **task***: Rake tasks
+* **config**: Application configuration
+* **controller**: Application controller
+* **docker**: Docker environnement
+* **gem**: Gem dependencies
+* **jobs**: Application background jobs
+* **lib**: Helpers/Utility classes...
+* **model**: Application model
+* **resource**: JSON API Ressource
+* **ruby**: Ruby version
+* **serializer**: Application serializer
+* **task**: Rake tasks
 
 There are currently a few exceptions to the "use package name" rule:
 
@@ -111,7 +111,7 @@ reference GitHub issues that this commit **Closes**.
 
 **Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
 
-A detailed explanation can be found in this [document][https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#].
+A detailed explanation can be found in this [document](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#).
 
 ## Code of Conduct
 
