@@ -16,6 +16,103 @@ Please note we have a code of conduct, please follow it in all your interactions
 4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you
    do not have permission to do that, you may request the second reviewer to merge it for you.
 
+## Commit Message Format
+Each commit message consists of a **header**, a **body** and a **footer**.
+The header has a special format that includes a **type**, a **scope** and a **subject**:
+
+```
+<type>(<scope>): <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+
+# The **header** is mandatory and the **scope** of the header is optional.
+
+<type>: <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
+```
+
+Any line of the commit message cannot be longer 100 characters!
+The message is easier to read on GitHub as well as in various git tools.
+
+The footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
+
+Samples: (even more [samples](https://github.com/angular/angular/commits/master))
+
+```
+docs(changelog): update changelog to beta.5
+```
+
+```
+fix(release): need to depend on latest rxjs and zone.js
+
+The version in our package.json gets copied to the one we publish, and users need the latest of these.
+```
+
+### Revert
+If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit.
+In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
+
+### Type
+Must be one of the following:
+
+* **build**: Changes that affect the build system or external dependencies (example scopes: gem, ruby, config)
+* **ci**: Changes to our CI/CD configuration files and scripts (example scopes: Travis, Gitlab)
+* **docs**: Documentation only changes
+* **feat**: A new feature
+* **fix**: A bug fix
+* **perf**: A code change that improves performance
+* **refactor**: A code change that neither fixes a bug nor adds a feature
+* **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+* **test**: Adding missing tests or correcting existing ones
+
+### Scope
+The scope should be the name of the area affected (as perceived by the person reading the changelog generated from commit messages).
+
+The following is the list of supported scopes:
+
+* **config***: Application configuration
+* **controller***: Application controller
+* **docker***: Docker environnement
+* **gem***: Gem dependencies
+* **jobs***: Application background jobs
+* **lib***: Helpers/Utility classes...
+* **model***: Application model
+* **resource***: JSON API Ressource
+* **ruby***: Ruby version
+* **serializer***: Application serializer
+* **task***: Rake tasks
+
+There are currently a few exceptions to the "use package name" rule:
+
+* **changelog**: used for updating the release notes in CHANGELOG.md
+* none/empty string: useful for `style`, `test` and `refactor` changes that are done across all
+  packages (e.g. `style: add missing semicolons`) and for docs changes that are not related to a
+  specific package (e.g. `docs: fix typo in tutorial`).
+
+### Subject
+The subject contains a succinct description of the change:
+
+* use the imperative, present tense: "change" not "changed" nor "changes"
+* don't capitalize the first letter
+* no dot (.) at the end
+
+### Body
+Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
+The body should include the motivation for the change and contrast this with previous behavior.
+
+### Footer
+The footer should contain any information about **Breaking Changes** and is also the place to
+reference GitHub issues that this commit **Closes**.
+
+**Breaking Changes** should start with the word `BREAKING CHANGE:` with a space or two newlines. The rest of the commit message is then used for this.
+
+A detailed explanation can be found in this [document][https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#].
+
 ## Code of Conduct
 
 ### Our Pledge
