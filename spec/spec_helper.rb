@@ -19,7 +19,7 @@ end
 
 require 'rspec/rails'
 
-Dir["#{Dir.pwd}/spec/support/**/*.rb"].each { |f| require f }
+Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
