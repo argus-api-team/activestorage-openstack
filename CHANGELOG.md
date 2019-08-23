@@ -2,6 +2,19 @@
 ## [Unreleased]
 
 
+<a name="v0.1.6"></a>
+## [v0.1.6] - 2019-08-23
+### Build
+- bump version to 0.1.6 [#fc762d4](https://github.com/argus-api-team/activestorage-openstack/commit/fc762d4) - Mickael Palma
+- fix travis configuration [#c404abc](https://github.com/argus-api-team/activestorage-openstack/commit/c404abc) - Mickael Palma
+
+### Docs
+- update CHANGELOG file [#c5135e4](https://github.com/argus-api-team/activestorage-openstack/commit/c5135e4) - Mickael Palma
+
+### Fix
+- add inflector rule for VERSION constant [#b313940](https://github.com/argus-api-team/activestorage-openstack/commit/b313940) - Mickael Palma
+
+
 <a name="v0.1.5"></a>
 ## [v0.1.5] - 2019-08-23
 ### Build
@@ -80,7 +93,8 @@
 - Merge pull request [#1](https://github.com/argus-api-team/activestorage-openstack/issues/1) from argus-api-team/dependabot/bundler/sqlite3-tw-1.4.0
 
 
-[Unreleased]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.6...HEAD
+[v0.1.6]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.5...v0.1.6
 [v0.1.5]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.4...v0.1.5
 [v0.1.4]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.2...v0.1.4
 [v0.1.2]: https://github.com/argus-api-team/activestorage-openstack/compare/v0.1.1...v0.1.2
