@@ -2,8 +2,8 @@
 
 require 'zeitwerk'
 
-# Inflector for Zeitwerk
-class CustomInflector < Zeitwerk::Inflector
+# Openstack Inflector for Zeitwerk
+class OpenstackCustomInflector < Zeitwerk::Inflector
   # :reek:ControlParameter imposed by Zeitwerk gem
   def camelize(basename, _abspath)
     case basename
@@ -13,6 +13,8 @@ class CustomInflector < Zeitwerk::Inflector
       'ObjectStoreURL'
     when 'create_temporary_uri'
       'CreateTemporaryURI'
+    when 'version'
+      'VERSION'
     else
       super
     end
@@ -21,7 +23,7 @@ end
 
 loader = Zeitwerk::Loader.new
 # loader.logger = method(:puts)
-loader.inflector = CustomInflector.new
+loader.inflector = OpenstackCustomInflector.new
 loader.preload("#{GEM_ROOT}/active_storage/service/openstack_service.rb")
 loader.push_dir(GEM_ROOT)
 loader.ignore(__dir__)
