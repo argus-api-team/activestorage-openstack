@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.description = 'OpenStack ActiveStorage service without dependencies.'
   spec.license     = 'MIT'
 
-  spec.required_ruby_version = '>= 2.6.2'
+  spec.required_ruby_version = '>= 2.6.3'
 
   spec.files = Dir[
     '{app,config,db,lib}/**/*',
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_runtime_dependency 'marcel', '~> 0.3'
-  spec.add_runtime_dependency 'rails', '~> 6.0.0.beta3'
+  spec.add_runtime_dependency 'rails', '~> 6.0.0'
   spec.add_runtime_dependency 'tzinfo-data', '~> 1.2'
   spec.add_runtime_dependency 'zeitwerk', '>= 1.3', '< 3.0'
 
