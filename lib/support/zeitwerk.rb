@@ -6,8 +6,8 @@ require 'zeitwerk'
 class OpenstackCustomInflector < Zeitwerk::Inflector
   # :reek:ControlParameter imposed by Zeitwerk gem
   def camelize(basename, _abspath)
-    if configuration.key?(basename)
-      configuration.fetch(basename)
+    if inflection_mappings.key?(basename)
+      inflection_mappings.fetch(basename)
     else
       super
     end
@@ -15,7 +15,7 @@ class OpenstackCustomInflector < Zeitwerk::Inflector
 
   private
 
-  def configuration
+  def inflection_mappings
     {
       'https_client' => 'HTTPSClient',
       'object_store_url' => 'ObjectStoreURL',
