@@ -6,18 +6,22 @@ require 'zeitwerk'
 class OpenstackCustomInflector < Zeitwerk::Inflector
   # :reek:ControlParameter imposed by Zeitwerk gem
   def camelize(basename, _abspath)
-    case basename
-    when 'https_client'
-      'HTTPSClient'
-    when 'object_store_url'
-      'ObjectStoreURL'
-    when 'create_temporary_uri'
-      'CreateTemporaryURI'
-    when 'version'
-      'VERSION'
+    if configuration.key?(basename)
+      configuration.fetch(basename)
     else
       super
     end
+  end
+
+  private
+
+  def configuration
+    {
+      'https_client' => 'HTTPSClient',
+      'object_store_url' => 'ObjectStoreURL',
+      'create_temporary_uri' => 'CreateTemporaryURI',
+      'version' => 'VERSION'
+    }
   end
 end
 

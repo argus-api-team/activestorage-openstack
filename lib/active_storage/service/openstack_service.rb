@@ -6,6 +6,7 @@ module ActiveStorage
     class OpenstackService < Service
       attr_reader :config, :credentials, :storage, :client
 
+      # rubocop:disable Metrics/LineLength
       def initialize(credentials:, container:, region:, **config)
         @config = config
         @credentials = credentials
@@ -14,6 +15,7 @@ module ActiveStorage
         @storage = client.storage container: container,
                                   region: region
       end
+      # rubocop:enable Metrics/LineLength
 
       # :reek:LongParameterList
       def upload(key, io, checksum: nil, **_options)

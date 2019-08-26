@@ -128,7 +128,6 @@ describe ActiveStorage::Service::OpenstackService do
       cassette_name: "#{cassette_path}/download-chunks",
       record: :new_episodes
     } do
-
       let(:key) { 'test.jpg' }
       let(:expected_chunks) { ['a' * chunk_size, 'b'] }
       let(:actual_chunks) { [] }

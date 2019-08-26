@@ -23,8 +23,8 @@ Dir["#{__dir__}/support/**/*.rb"].each { |f| require f }
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => exception
-  puts exception.to_s.strip
+rescue ActiveRecord::PendingMigrationError => e
+  puts e.to_s.strip
   exit 1
 end
 
