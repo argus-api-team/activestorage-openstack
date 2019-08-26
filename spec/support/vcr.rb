@@ -8,15 +8,19 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   # config.debug_logger = $stderr
 
-  config.filter_sensitive_data('<USERNAME>') do
-    Rails.application.credentials.openstack.fetch(:username)
+  {
+    username: '<USERNAME>',
+    api_key: '<API_KEY>',
+    temporary_url_key: '<TEMPORARY_URL_KEY>'
+  }.each_pair do |key, value|
+    config.filter_sensitive_data(value) do
+      Rails.application.credentials.openstack.fetch(key)
+    end
   end
 
-  config.filter_sensitive_data('<API_KEY>') do
-    Rails.application.credentials.openstack.fetch(:api_key)
-  end
-
-  config.filter_sensitive_data('<TEMPORARY_URL_KEY>') do
-    Rails.application.credentials.openstack.fetch(:temporary_url_key)
-  end
+  # config.before_record do |i|
+  #   if i.request.headers.key?('X-Auth-Token')
+  #     i.request.headers['X-Auth-Token'] = '__TOKEN__'
+  #   end
+  # end
 end
