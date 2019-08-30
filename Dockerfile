@@ -1,4 +1,4 @@
-FROM ruby:2.6.3-alpine
+FROM ruby:2.6.4-alpine
 
 ENV APP_USER appuser
 ENV APP_FOLDER /app
