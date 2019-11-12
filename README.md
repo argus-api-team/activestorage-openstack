@@ -71,7 +71,7 @@ The `red_green_refactor` Guard group means:
 
 See [Guardfile](Guardfile) for details.
 
-## Built With
+## Built with
 
 * [Net::HTTP](https://ruby-doc.org/stdlib/libdoc/net/http/rdoc/Net/HTTP.html) - From the standard Ruby Library.
 
