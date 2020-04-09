@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'tzinfo-data', '~> 1.2'
   spec.add_runtime_dependency 'zeitwerk', '>= 1.3', '< 3.0'
 
-  spec.add_development_dependency 'rspec-rails', '~> 3.8'
+  spec.add_development_dependency 'rspec-rails', '~> 4.0'
   spec.add_development_dependency 'sqlite3', '~> 1.4.0'
 end
